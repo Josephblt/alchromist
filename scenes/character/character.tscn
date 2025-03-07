@@ -1,0 +1,46 @@
+[gd_scene load_steps=12 format=3 uid="uid://c6lhesx21el4s"]
+
+[ext_resource type="Script" uid="uid://v5ihecwkqlf3" path="res://scripts/character/character.gd" id="1_6nn2t"]
+[ext_resource type="Texture2D" uid="uid://dc0utspdugm4v" path="res://assets/character/body_1.svg" id="2_q52vl"]
+[ext_resource type="Texture2D" uid="uid://evskud5a6ke2" path="res://assets/character/body_2.svg" id="3_l884r"]
+[ext_resource type="Texture2D" uid="uid://dbilbqrryg3so" path="res://assets/character/body_3.svg" id="4_0rlhq"]
+[ext_resource type="Texture2D" uid="uid://duq3y5kvj8rcj" path="res://assets/character/body_4.svg" id="5_oe6dy"]
+[ext_resource type="Texture2D" uid="uid://dmpluj8heeow0" path="res://assets/character/hand_1.svg" id="6_cuvpk"]
+[ext_resource type="Texture2D" uid="uid://c4vsubal7bg50" path="res://assets/character/hand_2.svg" id="7_rvcjf"]
+[ext_resource type="Texture2D" uid="uid://dlljp5sv2opx" path="res://assets/character/hand_3.svg" id="8_1pheb"]
+[ext_resource type="Texture2D" uid="uid://dfj2a5sq7ywmo" path="res://assets/character/hand_4.svg" id="9_h1xxs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q52vl"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l884r"]
+radius = 15.0
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_6nn2t")
+bodies = Array[Texture2D]([ExtResource("2_q52vl"), ExtResource("3_l884r"), ExtResource("4_0rlhq"), ExtResource("5_oe6dy")])
+hands = Array[Texture2D]([ExtResource("6_cuvpk"), ExtResource("7_rvcjf"), ExtResource("8_1pheb"), ExtResource("9_h1xxs")])
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q52vl")
+
+[node name="BodySprite" type="Sprite2D" parent="Body"]
+show_behind_parent = true
+texture = ExtResource("2_q52vl")
+
+[node name="LeftHand" type="CollisionShape2D" parent="."]
+position = Vector2(-50, -50)
+shape = SubResource("CircleShape2D_l884r")
+
+[node name="LeftHandSprite" type="Sprite2D" parent="LeftHand"]
+show_behind_parent = true
+texture = ExtResource("6_cuvpk")
+flip_h = true
+
+[node name="RightHand" type="CollisionShape2D" parent="."]
+position = Vector2(50, -50)
+shape = SubResource("CircleShape2D_l884r")
+
+[node name="RightHandSprite" type="Sprite2D" parent="RightHand"]
+show_behind_parent = true
+texture = ExtResource("6_cuvpk")
