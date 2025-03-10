@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6lhesx21el4s"]
+[gd_scene load_steps=15 format=3 uid="uid://c6lhesx21el4s"]
 
 [ext_resource type="Script" uid="uid://v5ihecwkqlf3" path="res://scripts/character/character.gd" id="1_6nn2t"]
 [ext_resource type="Texture2D" uid="uid://dc0utspdugm4v" path="res://assets/character/body_1.svg" id="2_q52vl"]
@@ -16,6 +16,58 @@ radius = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_l884r"]
 radius = 15.0
 
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_q52vl"]
+target_nodepath = NodePath("../LeftHandIK")
+tip_nodepath = NodePath("Spine/LeftShoulder/LeftElbow/LeftHand")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 2
+joint_data/0/bone2d_node = NodePath("Spine/LeftShoulder/LeftElbow")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = 50.0
+joint_data/0/constraint_angle_max = 250.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Spine/LeftShoulder")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 150.0
+joint_data/1/constraint_angle_max = 270.0
+joint_data/1/constraint_angle_invert = true
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_l884r"]
+target_nodepath = NodePath("../RightHandIK")
+tip_nodepath = NodePath("Spine/RightShoulder/RightElbow/RightHand")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 4
+joint_data/0/bone2d_node = NodePath("Spine/RightShoulder/RightElbow")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -50.0
+joint_data/0/constraint_angle_max = -250.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 3
+joint_data/1/bone2d_node = NodePath("Spine/RightShoulder")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = -150.0
+joint_data/1/constraint_angle_max = -270.0
+joint_data/1/constraint_angle_invert = true
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_0rlhq"]
+enabled = true
+modification_count = 2
+modifications/0 = SubResource("SkeletonModification2DCCDIK_q52vl")
+modifications/1 = SubResource("SkeletonModification2DCCDIK_l884r")
+
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_6nn2t")
 bodies = Array[Texture2D]([ExtResource("2_q52vl"), ExtResource("3_l884r"), ExtResource("4_0rlhq"), ExtResource("5_oe6dy")])
@@ -30,17 +82,79 @@ texture = ExtResource("2_q52vl")
 
 [node name="LeftHand" type="CollisionShape2D" parent="."]
 position = Vector2(-50, -50)
+rotation = -1.81906e-05
+scale = Vector2(0.999479, 0.999479)
 shape = SubResource("CircleShape2D_l884r")
 
 [node name="LeftHandSprite" type="Sprite2D" parent="LeftHand"]
 show_behind_parent = true
 texture = ExtResource("6_cuvpk")
-flip_h = true
 
 [node name="RightHand" type="CollisionShape2D" parent="."]
 position = Vector2(50, -50)
+rotation = -1.23026e-05
+scale = Vector2(0.999987, 0.999987)
 shape = SubResource("CircleShape2D_l884r")
 
 [node name="RightHandSprite" type="Sprite2D" parent="RightHand"]
 show_behind_parent = true
 texture = ExtResource("6_cuvpk")
+flip_h = true
+
+[node name="Skeleton" type="Skeleton2D" parent="."]
+modification_stack = SubResource("SkeletonModificationStack2D_0rlhq")
+
+[node name="Spine" type="Bone2D" parent="Skeleton"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="LeftShoulder" type="Bone2D" parent="Skeleton/Spine"]
+position = Vector2(-40, 0)
+rotation = 0.0078301
+scale = Vector2(0.999938, 0.999938)
+rest = Transform2D(0.999999, 1.90735e-06, -1.90735e-06, 0.999999, -40, 0)
+auto_calculate_length_and_angle = false
+length = 41.2311
+bone_angle = -165.964
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LeftElbow" type="Bone2D" parent="Skeleton/Spine/LeftShoulder"]
+position = Vector2(-39.9924, -9.99595)
+rotation = 0.179623
+scale = Vector2(0.999566, 0.999566)
+rest = Transform2D(0.999999, -3.99351e-06, 3.99351e-06, 0.999999, -40, -10)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = -53.13
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LeftHand" type="RemoteTransform2D" parent="Skeleton/Spine/LeftShoulder/LeftElbow"]
+position = Vector2(30, -40)
+remote_path = NodePath("../../../../../LeftHand")
+metadata/_edit_lock_ = true
+
+[node name="RightShoulder" type="Bone2D" parent="Skeleton/Spine"]
+position = Vector2(40, 0)
+rest = Transform2D(1, 0, 0, 1, 40, 0)
+auto_calculate_length_and_angle = false
+length = 41.2311
+bone_angle = -14.0362
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RightElbow" type="Bone2D" parent="Skeleton/Spine/RightShoulder"]
+position = Vector2(40, -10)
+rest = Transform2D(1, 1.75635e-06, -1.75635e-06, 1, 40, -10)
+auto_calculate_length_and_angle = false
+length = 50.0
+bone_angle = -126.87
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RightHand" type="RemoteTransform2D" parent="Skeleton/Spine/RightShoulder/RightElbow"]
+position = Vector2(-30, -40)
+remote_path = NodePath("../../../../../RightHand")
+metadata/_edit_lock_ = true
+
+[node name="LeftHandIK" type="Node2D" parent="."]
+position = Vector2(-50, -50)
+
+[node name="RightHandIK" type="Node2D" parent="."]
+position = Vector2(50, -50)
