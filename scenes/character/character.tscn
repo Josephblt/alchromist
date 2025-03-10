@@ -82,8 +82,6 @@ texture = ExtResource("2_q52vl")
 
 [node name="LeftHand" type="CollisionShape2D" parent="."]
 position = Vector2(-50, -50)
-rotation = -1.81906e-05
-scale = Vector2(0.999479, 0.999479)
 shape = SubResource("CircleShape2D_l884r")
 
 [node name="LeftHandSprite" type="Sprite2D" parent="LeftHand"]
@@ -92,8 +90,6 @@ texture = ExtResource("6_cuvpk")
 
 [node name="RightHand" type="CollisionShape2D" parent="."]
 position = Vector2(50, -50)
-rotation = -1.23026e-05
-scale = Vector2(0.999987, 0.999987)
 shape = SubResource("CircleShape2D_l884r")
 
 [node name="RightHandSprite" type="Sprite2D" parent="RightHand"]
@@ -109,19 +105,15 @@ rest = Transform2D(1, 0, 0, 1, 0, 0)
 
 [node name="LeftShoulder" type="Bone2D" parent="Skeleton/Spine"]
 position = Vector2(-40, 0)
-rotation = 0.0078301
-scale = Vector2(0.999938, 0.999938)
-rest = Transform2D(0.999999, 1.90735e-06, -1.90735e-06, 0.999999, -40, 0)
+rest = Transform2D(1, 0, 0, 1, -40, 0)
 auto_calculate_length_and_angle = false
 length = 41.2311
 bone_angle = -165.964
 metadata/_local_pose_override_enabled_ = true
 
 [node name="LeftElbow" type="Bone2D" parent="Skeleton/Spine/LeftShoulder"]
-position = Vector2(-39.9924, -9.99595)
-rotation = 0.179623
-scale = Vector2(0.999566, 0.999566)
-rest = Transform2D(0.999999, -3.99351e-06, 3.99351e-06, 0.999999, -40, -10)
+position = Vector2(-40, -10)
+rest = Transform2D(1, 0, 0, 1, -40, -10)
 auto_calculate_length_and_angle = false
 length = 50.0
 bone_angle = -53.13
