@@ -44,8 +44,8 @@ func _handle_move_v_input() -> void:
 
 
 func _handle_l_hand_input() -> void:
-	l_hand_attacking = Input.is_action_pressed("Left Hand")
+	l_hand_attacking = Input.is_action_pressed("Left Action")
 
 
 func _handle_r_hand_input() -> void:
-	r_hand_attacking = Input.is_action_pressed("Right Hand")
+	r_hand_attacking = Input.is_action_pressed("Right Action")

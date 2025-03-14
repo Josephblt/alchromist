@@ -69,6 +69,7 @@ modifications/0 = SubResource("SkeletonModification2DCCDIK_q52vl")
 modifications/1 = SubResource("SkeletonModification2DCCDIK_l884r")
 
 [node name="Character" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_6nn2t")
 bodies = Array[Texture2D]([ExtResource("2_q52vl"), ExtResource("3_l884r"), ExtResource("4_0rlhq"), ExtResource("5_oe6dy")])
 hands = Array[Texture2D]([ExtResource("6_cuvpk"), ExtResource("7_rvcjf"), ExtResource("8_1pheb"), ExtResource("9_h1xxs")])
