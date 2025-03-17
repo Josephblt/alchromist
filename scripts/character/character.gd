@@ -1,8 +1,8 @@
 class_name Character extends CharacterBody2D
 
 
-@export var bodies: Array[Texture2D] = []
-@export var hands: Array[Texture2D] = []
+@export var bodies: Array[Texture2D]
+@export var hands: Array[Texture2D]
 
 @export var acceleration: float = 10000.0
 @export var deceleration: float = 10000.0
@@ -63,15 +63,17 @@ func _move(delta: float) -> void:
 
 
 func _randomize_body():
-    if bodies.size() > 0:
-        var body_texture = bodies[randi() % bodies.size()]
-        body_sprite.texture = body_texture
-        print("Body texture: ", body_texture.resource_path)
+    if bodies.size() <= 0:
+        return
+    
+    var body_texture = bodies[randi() % bodies.size()]
+    body_sprite.texture = body_texture
 
 
 func _randomize_hands():
-    if hands.size() > 0:
-        var hand_texture = hands[randi() % hands.size()]
-        left_hand_sprite.texture = hand_texture
-        right_hand_sprite.texture = hand_texture
-        print("Hand texture: ", hand_texture.resource_path)
+    if hands.size() <= 0:
+        return
+
+    var hand_texture = hands[randi() % hands.size()]
+    left_hand_sprite.texture = hand_texture
+    right_hand_sprite.texture = hand_texture

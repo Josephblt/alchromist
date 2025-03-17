@@ -6,6 +6,10 @@ class_name Player extends Character
 @onready var camera: Camera2D = $Camera
 
 
+func _ready() -> void:
+	_adjust_camera_limits()
+
+
 func _physics_process(delta: float) -> void:
 	_handle_aim_h_input()
 	_handle_aim_v_input()
@@ -56,7 +60,7 @@ func _handle_r_hand_input() -> void:
 	r_hand_attacking = Input.is_action_pressed("Right Action")
 
 
-func _init_camera_limits() -> void:
+func _adjust_camera_limits() -> void:
 	if level_layers.size() == 0:
 		return
 
