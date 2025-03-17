@@ -20,6 +20,25 @@ func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 
 
+func _adjust_camera_limits() -> void:
+	if level_layers.size() == 0:
+		return
+
+	var min_pos: Vector2i = Vector2i.MAX
+	var max_pos: Vector2i = Vector2i.MIN
+
+	for layer in level_layers:
+		var rect: Rect2i = layer.get_used_rect()
+
+		min_pos = Vector2i(min(min_pos.x, rect.position.x), min(min_pos.y, rect.position.y))
+		max_pos = Vector2i(max(max_pos.x, rect.end.x), max(max_pos.y, rect.end.y))
+	
+	camera.limit_left = min_pos.x
+	camera.limit_top = min_pos.y
+	camera.limit_right = max_pos.x
+	camera.limit_bottom = max_pos.y
+
+
 func _handle_aim_h_input() -> void:
 	aim_direction = get_global_mouse_position() - get_global_position()
 
@@ -58,23 +77,3 @@ func _handle_l_hand_input() -> void:
 
 func _handle_r_hand_input() -> void:
 	r_hand_attacking = Input.is_action_pressed("Right Action")
-
-
-func _adjust_camera_limits() -> void:
-	if level_layers.size() == 0:
-		return
-
-	var min_pos: Vector2i = Vector2i.MAX
-	var max_pos: Vector2i = Vector2i.MIN
-
-	for layer in level_layers:
-		var rect: Rect2i = layer.get_used_rect()
-
-		min_pos = Vector2i(min(min_pos.x, rect.position.x), min(min_pos.y, rect.position.y))
-		max_pos = Vector2i(max(max_pos.x, rect.end.x), max(max_pos.y, rect.end.y))
-	
-	camera.limit_left = min_pos.x
-	camera.limit_top = min_pos.y
-	camera.limit_right = max_pos.x
-	camera.limit_bottom = max_pos.y
-
