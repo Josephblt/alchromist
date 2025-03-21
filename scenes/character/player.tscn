@@ -4,10 +4,13 @@
 [ext_resource type="Script" uid="uid://qhj5j3wpjnp" path="res://scripts/character/player.gd" id="2_tum32"]
 
 [node name="Player" node_paths=PackedStringArray("level_layers") instance=ExtResource("1_vt0b6")]
+z_index = 2
 script = ExtResource("2_tum32")
 level_layers = []
 
 [node name="Camera" type="Camera2D" parent="." index="0"]
+limit_smoothed = true
+position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 editor_draw_limits = true
