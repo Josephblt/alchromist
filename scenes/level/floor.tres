@@ -1,12 +1,12 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://igucne6erq5o"]
 
-[ext_resource type="Texture2D" uid="uid://cpehhmgbcouuo" path="res://assets/sprites/level/grass.svg" id="1_i7087"]
-[ext_resource type="Texture2D" uid="uid://crpgxtnbkqece" path="res://assets/sprites/level/stone.svg" id="1_pwx85"]
-[ext_resource type="Texture2D" uid="uid://bvj84vasr5xv5" path="res://assets/sprites/level/wood.svg" id="3_n4llu"]
+[ext_resource type="Texture2D" uid="uid://cpehhmgbcouuo" path="res://assets/sprites/level/floor/grass.svg" id="1_n4llu"]
+[ext_resource type="Texture2D" uid="uid://crpgxtnbkqece" path="res://assets/sprites/level/floor/stone.svg" id="2_5r5v8"]
+[ext_resource type="Texture2D" uid="uid://bvj84vasr5xv5" path="res://assets/sprites/level/floor/wood.svg" id="3_adug8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwx85"]
 resource_name = "Grass"
-texture = ExtResource("1_i7087")
+texture = ExtResource("1_n4llu")
 texture_region_size = Vector2i(128, 128)
 0:0/next_alternative_id = 4
 0:0/0 = 0
@@ -28,7 +28,7 @@ texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4llu"]
 resource_name = "Stone"
-texture = ExtResource("1_pwx85")
+texture = ExtResource("2_5r5v8")
 texture_region_size = Vector2i(128, 128)
 0:0/next_alternative_id = 8
 0:0/0 = 0
@@ -131,7 +131,7 @@ texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5r5v8"]
 resource_name = "Wood"
-texture = ExtResource("3_n4llu")
+texture = ExtResource("3_adug8")
 texture_region_size = Vector2i(128, 128)
 0:0/next_alternative_id = 14
 0:0/0 = 0
