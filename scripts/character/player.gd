@@ -32,8 +32,20 @@ func _adjust_camera_limits() -> void:
 		var rect: Rect2i = layer.get_used_rect()
 		var size = layer.tile_set.tile_size
 		
+		# print_debug("Layer: ", layer.name)
+		# print_debug("Rect: ", str(rect))
+		# print_debug("Size: ", str(size))
+		# print_debug("Rect Position: ", str(rect.position))
+		# print_debug("Rect End: ", str(rect.end))
+		# print_debug("Before Min Pos: ", str(min_pos))
+		# print_debug("Before Max Pos: ", str(max_pos))
+
 		min_pos = Vector2i(min(min_pos.x, rect.position.x), min(min_pos.y, rect.position.y)) * size
 		max_pos = Vector2i(max(max_pos.x, rect.end.x), max(max_pos.y, rect.end.y)) * size
+
+		# print_debug("After Min Pos: ", str(min_pos))
+		# print_debug("After Max Pos: ", str(max_pos))
+
 	
 	camera.limit_left = min_pos.x
 	camera.limit_top = min_pos.y
