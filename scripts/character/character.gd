@@ -21,59 +21,65 @@ class_name Character extends CharacterBody2D
 
 
 func _ready():
-    _randomize_body()
-    _randomize_hands()
+	_randomize_body()
+	_randomize_hands()
 
 
 func _physics_process(delta: float) -> void:
-    _aim()
-    _move(delta)
+	_aim()
+	_move(delta)
 
  
 func _aim() -> void:
-    rotation = aim_direction.angle() + deg_to_rad(90.0)
+	rotation = aim_direction.angle() + deg_to_rad(90.0)
 
 
 func _move(delta: float) -> void:
-    if h_axis != 0:
-        velocity.x += h_axis * acceleration * delta
-    else:
-        var h_decel = deceleration * delta
-        if abs(velocity.x) < h_decel:
-            velocity.x = 0.0
-        else:
-            if velocity.x > 0:
-                velocity.x -= h_decel
-            else:
-                velocity.x += h_decel
-    
-    if v_axis != 0:
-        velocity.y += v_axis * acceleration * delta
-    else:
-        var v_decel = deceleration * delta
-        if abs(velocity.y) < v_decel:
-            velocity.y = 0.0
-        else:
-            if velocity.y > 0:
-                velocity.y -= v_decel
-            else:
-                velocity.y += v_decel
-    velocity = velocity.limit_length(max_speed)
-    move_and_slide()
+	if h_axis != 0:
+		velocity.x += h_axis * acceleration * delta
+	else:
+		var h_decel = deceleration * delta
+		if abs(velocity.x) < h_decel:
+			velocity.x = 0.0
+		else:
+			if velocity.x > 0:
+				velocity.x -= h_decel
+			else:
+				velocity.x += h_decel
+	
+	if v_axis != 0:
+		velocity.y += v_axis * acceleration * delta
+	else:
+		var v_decel = deceleration * delta
+		if abs(velocity.y) < v_decel:
+			velocity.y = 0.0
+		else:
+			if velocity.y > 0:
+				velocity.y -= v_decel
+			else:
+				velocity.y += v_decel
+	velocity = velocity.limit_length(max_speed)
+	move_and_slide()
 
 
 func _randomize_body():
-    if bodies.size() <= 0:
-        return
-    
-    var body_texture = bodies[randi() % bodies.size()]
-    body_sprite.texture = body_texture
+	if bodies.size() <= 0:
+		return
+	
+	var index = randi() % bodies.size()
+	# print_debug("Body: " + str(index))
+
+	var body_texture = bodies[index]
+	body_sprite.texture = body_texture
 
 
 func _randomize_hands():
-    if hands.size() <= 0:
-        return
+	if hands.size() <= 0:
+		return
 
-    var hand_texture = hands[randi() % hands.size()]
-    left_hand_sprite.texture = hand_texture
-    right_hand_sprite.texture = hand_texture
+	var index = randi() % hands.size()
+	# print_debug("Hands: " + str(index))
+
+	var hand_texture = hands[index]
+	left_hand_sprite.texture = hand_texture
+	right_hand_sprite.texture = hand_texture
