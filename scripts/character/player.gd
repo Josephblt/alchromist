@@ -7,6 +7,7 @@ class_name Player extends Character
 
 
 func _ready() -> void:
+	super._ready()
 	_adjust_camera_limits()
 
 
@@ -29,9 +30,10 @@ func _adjust_camera_limits() -> void:
 
 	for layer in level_layers:
 		var rect: Rect2i = layer.get_used_rect()
-
-		min_pos = Vector2i(min(min_pos.x, rect.position.x), min(min_pos.y, rect.position.y))
-		max_pos = Vector2i(max(max_pos.x, rect.end.x), max(max_pos.y, rect.end.y))
+		var size = layer.tile_set.tile_size
+		
+		min_pos = Vector2i(min(min_pos.x, rect.position.x), min(min_pos.y, rect.position.y)) * size
+		max_pos = Vector2i(max(max_pos.x, rect.end.x), max(max_pos.y, rect.end.y)) * size
 	
 	camera.limit_left = min_pos.x
 	camera.limit_top = min_pos.y
