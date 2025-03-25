@@ -122,7 +122,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="LeftHand" type="RemoteTransform2D" parent="Skeleton/Spine/LeftShoulder/LeftElbow"]
 position = Vector2(30, -40)
-remote_path = NodePath("../../../../../LeftHand")
+remote_path = NodePath("../../../../../LeftHandIK")
+update_scale = false
 metadata/_edit_lock_ = true
 
 [node name="RightShoulder" type="Bone2D" parent="Skeleton/Spine"]
@@ -143,7 +144,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="RightHand" type="RemoteTransform2D" parent="Skeleton/Spine/RightShoulder/RightElbow"]
 position = Vector2(-30, -40)
-remote_path = NodePath("../../../../../RightHand")
+remote_path = NodePath("../../../../../RightHandIK")
+update_scale = false
 metadata/_edit_lock_ = true
 
 [node name="LeftHandIK" type="Node2D" parent="."]
