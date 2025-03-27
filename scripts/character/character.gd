@@ -1,4 +1,4 @@
-class_name Character extends CharacterBody2D
+class_name Character extends Node
 
 
 @export var bodies: Array[Texture2D]
@@ -15,14 +15,16 @@ class_name Character extends CharacterBody2D
 @export var l_hand_attacking: bool = false
 @export var r_hand_attacking: bool = false
 
-@onready var body_sprite: Sprite2D = $Body/BodySprite
-@onready var left_hand_sprite: Sprite2D = $LeftHand/LeftHandSprite
-@onready var right_hand_sprite: Sprite2D = $RightHand/RightHandSprite
+@onready var body: CharacterBody2D = $Body
+@onready var body_sprite: Sprite2D = $Body/BodyShape/BodySprite
+@onready var left_hand_sprite: Sprite2D = $LeftHand/LeftHandShape/LeftHandSprite
+@onready var right_hand_sprite: Sprite2D = $RightHand/RightHandShape/RightHandSprite
 
 
 func _ready():
-	_randomize_body()
-	_randomize_hands()
+	# _randomize_body()
+	# _randomize_hands()
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -31,35 +33,35 @@ func _physics_process(delta: float) -> void:
 
  
 func _aim() -> void:
-	rotation = aim_direction.angle() + deg_to_rad(90.0)
+	body.rotation = aim_direction.angle() + deg_to_rad(90.0)
 
 
 func _move(delta: float) -> void:
 	if h_axis != 0:
-		velocity.x += h_axis * acceleration * delta
+		body.velocity.x += h_axis * acceleration * delta
 	else:
 		var h_decel = deceleration * delta
-		if abs(velocity.x) < h_decel:
-			velocity.x = 0.0
+		if abs(body.velocity.x) < h_decel:
+			body.velocity.x = 0.0
 		else:
-			if velocity.x > 0:
-				velocity.x -= h_decel
+			if body.velocity.x > 0:
+				body.velocity.x -= h_decel
 			else:
-				velocity.x += h_decel
+				body.velocity.x += h_decel
 	
 	if v_axis != 0:
-		velocity.y += v_axis * acceleration * delta
+		body.velocity.y += v_axis * acceleration * delta
 	else:
 		var v_decel = deceleration * delta
-		if abs(velocity.y) < v_decel:
-			velocity.y = 0.0
+		if abs(body.velocity.y) < v_decel:
+			body.velocity.y = 0.0
 		else:
-			if velocity.y > 0:
-				velocity.y -= v_decel
+			if body.velocity.y > 0:
+				body.velocity.y -= v_decel
 			else:
-				velocity.y += v_decel
-	velocity = velocity.limit_length(max_speed)
-	move_and_slide()
+				body.velocity.y += v_decel
+	body.velocity = body.velocity.limit_length(max_speed)
+	body.move_and_slide()
 
 
 func _randomize_body():

@@ -3,7 +3,7 @@ class_name Player extends Character
 
 @export var level_layers: Array[TileMapLayer]
 
-@onready var camera: Camera2D = $Camera
+@onready var camera: Camera2D = $Body/Camera
 
 
 func _ready() -> void:
@@ -54,11 +54,11 @@ func _adjust_camera_limits() -> void:
 
 
 func _handle_aim_h_input() -> void:
-	aim_direction = get_global_mouse_position() - get_global_position()
+	aim_direction = body.get_global_mouse_position() - body.get_global_position()
 
 
 func _handle_aim_v_input() -> void:
-	aim_direction = get_global_mouse_position() - get_global_position()
+	aim_direction = body.get_global_mouse_position() - body.get_global_position()
 
 
 func _handle_move_h_input() -> void:
