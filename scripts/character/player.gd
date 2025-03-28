@@ -3,7 +3,7 @@ class_name Player extends Character
 
 @export var level_layers: Array[TileMapLayer]
 
-@onready var camera: Camera2D = $Body/Camera
+@onready var camera: Camera2D = $Camera
 
 
 func _ready() -> void:
@@ -28,25 +28,31 @@ func _adjust_camera_limits() -> void:
 	var min_pos: Vector2i = Vector2i.MAX
 	var max_pos: Vector2i = Vector2i.MIN
 
+
 	for layer in level_layers:
+		# print("####################################################")
 		var rect: Rect2i = layer.get_used_rect()
 		var size = layer.tile_set.tile_size
 		
-		# print_debug("Layer: ", layer.name)
-		# print_debug("Rect: ", str(rect))
-		# print_debug("Size: ", str(size))
-		# print_debug("Rect Position: ", str(rect.position))
-		# print_debug("Rect End: ", str(rect.end))
-		# print_debug("Before Min Pos: ", str(min_pos))
-		# print_debug("Before Max Pos: ", str(max_pos))
+		# print("Layer: ", layer.name)
+		# print("Rect: ", str(rect))
+		# print("Size: ", str(size))
+		# print("Rect Position: ", str(rect.position))
+		# print("Rect End: ", str(rect.end))
+		# print("Before Min Pos: ", str(min_pos))
+		# print("Before Max Pos: ", str(max_pos))
 
-		min_pos = Vector2i(min(min_pos.x, rect.position.x), min(min_pos.y, rect.position.y)) * size
-		max_pos = Vector2i(max(max_pos.x, rect.end.x), max(max_pos.y, rect.end.y)) * size
+		var pos = rect.position * size
+		var end = rect.end * size
 
-		# print_debug("After Min Pos: ", str(min_pos))
-		# print_debug("After Max Pos: ", str(max_pos))
+		min_pos = Vector2i(min(min_pos.x, pos.x), min(min_pos.y, pos.y))
+		max_pos = Vector2i(max(max_pos.x, end.x), max(max_pos.y, end.y))
 
+		# print("After Min Pos: ", str(min_pos))
+		# print("After Max Pos: ", str(max_pos))
+		# print("####################################################")
 	
+
 	camera.limit_left = min_pos.x
 	camera.limit_top = min_pos.y
 	camera.limit_right = max_pos.x
@@ -54,11 +60,11 @@ func _adjust_camera_limits() -> void:
 
 
 func _handle_aim_h_input() -> void:
-	aim_direction = body.get_global_mouse_position() - body.get_global_position()
+	aim_direction = get_global_mouse_position() - get_global_position()
 
 
 func _handle_aim_v_input() -> void:
-	aim_direction = body.get_global_mouse_position() - body.get_global_position()
+	pass
 
 
 func _handle_move_h_input() -> void:
