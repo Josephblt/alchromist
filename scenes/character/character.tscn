@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6lhesx21el4s"]
+[gd_scene load_steps=17 format=3 uid="uid://c6lhesx21el4s"]
 
 [ext_resource type="Script" uid="uid://v5ihecwkqlf3" path="res://scripts/character/character.gd" id="1_6nn2t"]
 [ext_resource type="Texture2D" uid="uid://dc0utspdugm4v" path="res://assets/sprites/character/body_1.svg" id="2_q52vl"]
@@ -67,6 +67,10 @@ enabled = true
 modification_count = 2
 modifications/0 = SubResource("SkeletonModification2DCCDIK_q52vl")
 modifications/1 = SubResource("SkeletonModification2DCCDIK_l884r")
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_q52vl"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_l884r"]
 
 [node name="Character" type="CharacterBody2D"]
 motion_mode = 1
@@ -163,3 +167,15 @@ position = Vector2(-50, -50)
 
 [node name="RightHandIK" type="Node2D" parent="."]
 position = Vector2(50, -50)
+
+[node name="Animations" type="Node" parent="."]
+
+[node name="BodyAnimationTree" type="AnimationTree" parent="Animations"]
+tree_root = SubResource("AnimationNodeStateMachine_q52vl")
+
+[node name="BodyAnimationPlayer" type="AnimationPlayer" parent="Animations/BodyAnimationTree"]
+
+[node name="HandsAnimationTree" type="AnimationTree" parent="Animations"]
+tree_root = SubResource("AnimationNodeStateMachine_l884r")
+
+[node name="HandsAnimationPlayer" type="AnimationPlayer" parent="Animations/HandsAnimationTree"]
