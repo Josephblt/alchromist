@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c6lhesx21el4s"]
+[gd_scene load_steps=26 format=3 uid="uid://c6lhesx21el4s"]
 
 [ext_resource type="Script" uid="uid://v5ihecwkqlf3" path="res://scripts/character/character.gd" id="1_6nn2t"]
 [ext_resource type="Texture2D" uid="uid://dc0utspdugm4v" path="res://assets/sprites/character/body_1.svg" id="2_q52vl"]
@@ -73,9 +73,13 @@ modifications/1 = SubResource("SkeletonModification2DCCDIK_l884r")
 [sub_resource type="Animation" id="Animation_q52vl"]
 resource_name = "body_idle"
 
+[sub_resource type="Animation" id="Animation_oe6dy"]
+resource_name = "body_move"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l884r"]
 _data = {
-&"body_idle": SubResource("Animation_q52vl")
+&"body_idle": SubResource("Animation_q52vl"),
+&"body_move": SubResource("Animation_oe6dy")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q52vl"]
@@ -146,10 +150,14 @@ tracks/1/keys = {
 "values": [Vector2(52, -48), Vector2(48, -52)]
 }
 
+[sub_resource type="Animation" id="Animation_cuvpk"]
+resource_name = "hands_move"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oe6dy"]
 _data = {
 &"RESET": SubResource("Animation_l884r"),
-&"hands_idle": SubResource("Animation_0rlhq")
+&"hands_idle": SubResource("Animation_0rlhq"),
+&"hands_move": SubResource("Animation_cuvpk")
 }
 
 [node name="Character" type="CharacterBody2D"]
@@ -172,27 +180,23 @@ position = Vector2(-50, -50)
 [node name="LeftHandShape" type="CollisionShape2D" parent="LeftHand"]
 z_index = 1
 shape = SubResource("CircleShape2D_l884r")
-metadata/_edit_lock_ = true
 
 [node name="LeftHandSprite" type="Sprite2D" parent="LeftHand/LeftHandShape"]
 show_behind_parent = true
 z_index = 4
 texture = ExtResource("6_cuvpk")
-metadata/_edit_lock_ = true
 
 [node name="RightHand" type="Area2D" parent="."]
 position = Vector2(50, -50)
 
 [node name="RightHandShape" type="CollisionShape2D" parent="RightHand"]
 shape = SubResource("CircleShape2D_l884r")
-metadata/_edit_lock_ = true
 
 [node name="RightHandSprite" type="Sprite2D" parent="RightHand/RightHandShape"]
 show_behind_parent = true
 z_index = 4
 texture = ExtResource("6_cuvpk")
 flip_h = true
-metadata/_edit_lock_ = true
 
 [node name="Skeleton" type="Skeleton2D" parent="."]
 modification_stack = SubResource("SkeletonModificationStack2D_0rlhq")
@@ -219,7 +223,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="LeftHand" type="RemoteTransform2D" parent="Skeleton/Spine/LeftShoulder/LeftElbow"]
 position = Vector2(30, -40)
 remote_path = NodePath("../../../../../LeftHand")
-metadata/_edit_lock_ = true
 
 [node name="RightShoulder" type="Bone2D" parent="Skeleton/Spine"]
 position = Vector2(40, 0)
@@ -240,7 +243,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="RightHand" type="RemoteTransform2D" parent="Skeleton/Spine/RightShoulder/RightElbow"]
 position = Vector2(-30, -40)
 remote_path = NodePath("../../../../../RightHand")
-metadata/_edit_lock_ = true
 
 [node name="LeftHandIK" type="Node2D" parent="."]
 position = Vector2(-50, -50)
