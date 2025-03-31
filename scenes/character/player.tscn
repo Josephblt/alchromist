@@ -8,6 +8,7 @@ script = ExtResource("2_tum32")
 level_layers = []
 
 [node name="Camera" type="Camera2D" parent="." index="0"]
+process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 25.0

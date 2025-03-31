@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c6lhesx21el4s"]
+[gd_scene load_steps=31 format=3 uid="uid://c6lhesx21el4s"]
 
 [ext_resource type="Script" uid="uid://v5ihecwkqlf3" path="res://scripts/character/character.gd" id="1_6nn2t"]
 [ext_resource type="Texture2D" uid="uid://dc0utspdugm4v" path="res://assets/sprites/character/body_1.svg" id="2_q52vl"]
@@ -85,14 +85,42 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q52vl"]
 animation = &"hands_idle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l884r"]
+animation = &"hands_move"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0rlhq"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_q52vl"]
+graph_offset = Vector2(81.2901, 47.6473)
+nodes/hands_animation/node = SubResource("AnimationNodeAnimation_l884r")
+nodes/hands_animation/position = Vector2(320, 120)
+nodes/output/position = Vector2(660, 120)
+nodes/time_scale/node = SubResource("AnimationNodeTimeScale_0rlhq")
+nodes/time_scale/position = Vector2(500, 120)
+node_connections = [&"output", 0, &"time_scale", &"time_scale", 0, &"hands_animation"]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l884r"]
-reset = false
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0rlhq"]
+xfade_time = 0.1
+switch_mode = 1
+advance_mode = 2
+advance_expression = "get_real_velocity().length() > min_speed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oe6dy"]
+xfade_time = 0.1
+switch_mode = 1
+advance_mode = 2
+advance_expression = "get_real_velocity().length() <= min_speed"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_l884r"]
+states/End/position = Vector2(1081, 100)
 states/hands_idle/node = SubResource("AnimationNodeAnimation_q52vl")
-states/hands_idle/position = Vector2(526, 100)
-transitions = ["Start", "hands_idle", SubResource("AnimationNodeStateMachineTransition_l884r")]
+states/hands_idle/position = Vector2(475, 100)
+states/hands_move/node = SubResource("AnimationNodeBlendTree_q52vl")
+states/hands_move/position = Vector2(783, 100)
+transitions = ["Start", "hands_idle", SubResource("AnimationNodeStateMachineTransition_l884r"), "hands_idle", "hands_move", SubResource("AnimationNodeStateMachineTransition_0rlhq"), "hands_move", "hands_idle", SubResource("AnimationNodeStateMachineTransition_oe6dy")]
 
 [sub_resource type="Animation" id="Animation_l884r"]
 length = 0.001
@@ -152,6 +180,33 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_cuvpk"]
 resource_name = "hands_move"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../LeftHandIK:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-45, -60), Vector2(-70, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../RightHandIK:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(70, 0), Vector2(45, -60)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oe6dy"]
 _data = {
@@ -255,6 +310,7 @@ position = Vector2(50, -50)
 [node name="BodyAnimationTree" type="AnimationTree" parent="Animations"]
 root_node = NodePath(".")
 tree_root = SubResource("AnimationNodeStateMachine_q52vl")
+advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("BodyAnimationPlayer")
 
 [node name="BodyAnimationPlayer" type="AnimationPlayer" parent="Animations/BodyAnimationTree"]
@@ -265,7 +321,9 @@ libraries = {
 [node name="HandsAnimationTree" type="AnimationTree" parent="Animations"]
 root_node = NodePath(".")
 tree_root = SubResource("AnimationNodeStateMachine_l884r")
+advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("HandsAnimationPlayer")
+parameters/hands_move/time_scale/scale = 1.0
 
 [node name="HandsAnimationPlayer" type="AnimationPlayer" parent="Animations/HandsAnimationTree"]
 libraries = {

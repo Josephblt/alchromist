@@ -18,6 +18,7 @@ class_name Character extends CharacterBody2D
 @onready var body_sprite: Sprite2D = $BodyShape/BodySprite
 @onready var left_hand_sprite: Sprite2D = $LeftHand/LeftHandShape/LeftHandSprite
 @onready var right_hand_sprite: Sprite2D = $RightHand/RightHandShape/RightHandSprite
+@onready var hands_animation_tree: AnimationTree = $Animations/HandsAnimationTree
 
 
 func _ready():
@@ -59,6 +60,9 @@ func _move(delta: float) -> void:
 			else:
 				velocity.y += v_decel
 	velocity = velocity.limit_length(max_speed)
+
+	hands_animation_tree["parameters/hands_move/time_scale/scale"] = get_real_velocity().length() / max_speed
+
 	move_and_slide()
 
 
@@ -67,8 +71,6 @@ func _randomize_body():
 		return
 	
 	var index = randi() % bodies.size()
-	# print_debug("Body: " + str(index))
-
 	var body_texture = bodies[index]
 	body_sprite.texture = body_texture
 
@@ -78,8 +80,6 @@ func _randomize_hands():
 		return
 
 	var index = randi() % hands.size()
-	# print_debug("Hands: " + str(index))
-
 	var hand_texture = hands[index]
 	left_hand_sprite.texture = hand_texture
 	right_hand_sprite.texture = hand_texture
