@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://s8fex67niq31"
+path="res://.godot/imported/Footsteps Wood 3.ogg-960721d7f05a983c449c37d906dbc9ae.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/characters/footsteps/Footsteps Wood 3.ogg"
+dest_files=["res://.godot/imported/Footsteps Wood 3.ogg-960721d7f05a983c449c37d906dbc9ae.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

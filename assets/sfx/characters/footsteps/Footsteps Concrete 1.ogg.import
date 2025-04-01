@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cmfb1i0gw7kj8"
+path="res://.godot/imported/Footsteps Concrete 1.ogg-e8e7390ad36a3e3e1b35e9580ee841a9.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/characters/footsteps/Footsteps Concrete 1.ogg"
+dest_files=["res://.godot/imported/Footsteps Concrete 1.ogg-e8e7390ad36a3e3e1b35e9580ee841a9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
