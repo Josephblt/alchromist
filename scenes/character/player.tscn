@@ -3,11 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://c6lhesx21el4s" path="res://scenes/character/character.tscn" id="1_vt0b6"]
 [ext_resource type="Script" uid="uid://qhj5j3wpjnp" path="res://scripts/character/player.gd" id="2_tum32"]
 
-[node name="Player" node_paths=PackedStringArray("level_layers") instance=ExtResource("1_vt0b6")]
+[node name="Player" instance=ExtResource("1_vt0b6")]
 script = ExtResource("2_tum32")
-level_layers = []
 
-[node name="Camera" type="Camera2D" parent="." index="0"]
+[node name="AudioListener" type="AudioListener2D" parent="." index="0"]
+current = true
+
+[node name="Camera" type="Camera2D" parent="." index="1"]
 process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true

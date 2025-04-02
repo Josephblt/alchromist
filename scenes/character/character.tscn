@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c6lhesx21el4s"]
+[gd_scene load_steps=37 format=3 uid="uid://c6lhesx21el4s"]
 
 [ext_resource type="Script" uid="uid://v5ihecwkqlf3" path="res://scripts/character/character.gd" id="1_6nn2t"]
 [ext_resource type="Texture2D" uid="uid://dc0utspdugm4v" path="res://assets/sprites/character/body_1.svg" id="2_q52vl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c4vsubal7bg50" path="res://assets/sprites/character/hand_2.svg" id="7_rvcjf"]
 [ext_resource type="Texture2D" uid="uid://dlljp5sv2opx" path="res://assets/sprites/character/hand_3.svg" id="8_1pheb"]
 [ext_resource type="Texture2D" uid="uid://dfj2a5sq7ywmo" path="res://assets/sprites/character/hand_4.svg" id="9_h1xxs"]
+[ext_resource type="Script" uid="uid://61dna1nyj5m" path="res://scripts/character/footsteps_randomizer.gd" id="10_l884r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q52vl"]
 radius = 40.0
@@ -68,13 +69,51 @@ modification_count = 2
 modifications/0 = SubResource("SkeletonModification2DCCDIK_q52vl")
 modifications/1 = SubResource("SkeletonModification2DCCDIK_l884r")
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0rlhq"]
+animation = &"body_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oe6dy"]
+animation = &"body_move"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cuvpk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rvcjf"]
+advance_mode = 2
+advance_expression = "get_real_velocity().length() > min_speed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1pheb"]
+advance_mode = 2
+advance_expression = "get_real_velocity().length() <= min_speed"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_q52vl"]
+states/body_idle/node = SubResource("AnimationNodeAnimation_0rlhq")
+states/body_idle/position = Vector2(396, 100)
+states/body_move/node = SubResource("AnimationNodeAnimation_oe6dy")
+states/body_move/position = Vector2(662, 100)
+transitions = ["Start", "body_idle", SubResource("AnimationNodeStateMachineTransition_cuvpk"), "body_idle", "body_move", SubResource("AnimationNodeStateMachineTransition_rvcjf"), "body_move", "body_idle", SubResource("AnimationNodeStateMachineTransition_1pheb")]
 
 [sub_resource type="Animation" id="Animation_q52vl"]
 resource_name = "body_idle"
 
 [sub_resource type="Animation" id="Animation_oe6dy"]
 resource_name = "body_move"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Audio/Footsteps")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_footstep"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l884r"]
 _data = {
@@ -329,3 +368,8 @@ parameters/hands_move/time_scale/scale = 1.0
 libraries = {
 &"": SubResource("AnimationLibrary_oe6dy")
 }
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio"]
+script = ExtResource("10_l884r")
