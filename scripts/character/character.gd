@@ -15,6 +15,8 @@ class_name Character extends CharacterBody2D
 @export var l_hand_attacking: bool = false
 @export var r_hand_attacking: bool = false
 
+@export var floor_tiles: TileMapLayer
+
 @onready var body_sprite: Sprite2D = $BodyShape/BodySprite
 @onready var left_hand_sprite: Sprite2D = $LeftHand/LeftHandShape/LeftHandSprite
 @onready var right_hand_sprite: Sprite2D = $RightHand/RightHandShape/RightHandSprite

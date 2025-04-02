@@ -1,8 +1,6 @@
 class_name Player extends Character
 
 
-@export var level_layers: Array[TileMapLayer]
-
 @onready var camera: Camera2D = $Camera
 
 
@@ -22,36 +20,17 @@ func _physics_process(delta: float) -> void:
 
 
 func _adjust_camera_limits() -> void:
-	if level_layers.size() == 0:
-		return
-
 	var min_pos: Vector2i = Vector2i.MAX
 	var max_pos: Vector2i = Vector2i.MIN
 
-
-	for layer in level_layers:
-		# print("####################################################")
-		var rect: Rect2i = layer.get_used_rect()
-		var size = layer.tile_set.tile_size
+	var rect: Rect2i = floor_tiles.get_used_rect()
+	var size = floor_tiles.tile_set.tile_size
 		
-		# print("Layer: ", layer.name)
-		# print("Rect: ", str(rect))
-		# print("Size: ", str(size))
-		# print("Rect Position: ", str(rect.position))
-		# print("Rect End: ", str(rect.end))
-		# print("Before Min Pos: ", str(min_pos))
-		# print("Before Max Pos: ", str(max_pos))
+	var pos = rect.position * size
+	var end = rect.end * size
 
-		var pos = rect.position * size
-		var end = rect.end * size
-
-		min_pos = Vector2i(min(min_pos.x, pos.x), min(min_pos.y, pos.y))
-		max_pos = Vector2i(max(max_pos.x, end.x), max(max_pos.y, end.y))
-
-		# print("After Min Pos: ", str(min_pos))
-		# print("After Max Pos: ", str(max_pos))
-		# print("####################################################")
-	
+	min_pos = Vector2i(min(min_pos.x, pos.x), min(min_pos.y, pos.y))
+	max_pos = Vector2i(max(max_pos.x, end.x), max(max_pos.y, end.y))
 
 	camera.limit_left = min_pos.x
 	camera.limit_top = min_pos.y
