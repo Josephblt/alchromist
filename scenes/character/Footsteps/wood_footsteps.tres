@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="FootstepsResource" load_steps=12 format=3 uid="uid://cs2dk57vyjup6"]
+
+[ext_resource type="AudioStream" uid="uid://bgunmkdtxjmvj" path="res://assets/sfx/characters/footsteps/Footsteps Wood 1.ogg" id="1_7k42i"]
+[ext_resource type="AudioStream" uid="uid://ioibu5xg4okv" path="res://assets/sfx/characters/footsteps/Footsteps Wood 2.ogg" id="2_2qjxl"]
+[ext_resource type="AudioStream" uid="uid://s8fex67niq31" path="res://assets/sfx/characters/footsteps/Footsteps Wood 3.ogg" id="3_5aj3v"]
+[ext_resource type="AudioStream" uid="uid://duxn6t2tc4m17" path="res://assets/sfx/characters/footsteps/Footsteps Wood 4.ogg" id="4_bny8s"]
+[ext_resource type="AudioStream" uid="uid://du38w8db0hvmi" path="res://assets/sfx/characters/footsteps/Footsteps Wood 5.ogg" id="5_l38f3"]
+[ext_resource type="AudioStream" uid="uid://deq5vjygo1h8" path="res://assets/sfx/characters/footsteps/Footsteps Wood 6.ogg" id="6_d5on2"]
+[ext_resource type="AudioStream" uid="uid://bkevrnndju6cu" path="res://assets/sfx/characters/footsteps/Footsteps Wood 7.ogg" id="7_fwoe2"]
+[ext_resource type="AudioStream" uid="uid://bbpp4lwmxhlpi" path="res://assets/sfx/characters/footsteps/Footsteps Wood 8.ogg" id="8_77ipu"]
+[ext_resource type="AudioStream" uid="uid://dfxuc5fvnnwuh" path="res://assets/sfx/characters/footsteps/Footsteps Wood 9.ogg" id="9_ijhgw"]
+[ext_resource type="AudioStream" uid="uid://djks7xm760538" path="res://assets/sfx/characters/footsteps/Footsteps Wood 10.ogg" id="10_yxbgg"]
+[ext_resource type="Script" uid="uid://tmg1monq0owj" path="res://scripts/character/footsteps_resource.gd" id="11_lp70x"]
+
+[resource]
+script = ExtResource("11_lp70x")
+footsteps_sfx = Array[AudioStream]([ExtResource("1_7k42i"), ExtResource("2_2qjxl"), ExtResource("3_5aj3v"), ExtResource("4_bny8s"), ExtResource("5_l38f3"), ExtResource("6_d5on2"), ExtResource("7_fwoe2"), ExtResource("8_77ipu"), ExtResource("9_ijhgw"), ExtResource("10_yxbgg")])
+metadata/_custom_type_script = "uid://tmg1monq0owj"

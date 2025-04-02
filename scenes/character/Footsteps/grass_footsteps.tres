@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="FootstepsResource" load_steps=12 format=3 uid="uid://llp8kcjecsg3"]
+
+[ext_resource type="AudioStream" uid="uid://c7m42wyjd1gsv" path="res://assets/sfx/characters/footsteps/Footsteps Grass 1.ogg" id="1_shue1"]
+[ext_resource type="AudioStream" uid="uid://cfm6hwlipuef5" path="res://assets/sfx/characters/footsteps/Footsteps Grass 2.ogg" id="2_pw4dg"]
+[ext_resource type="AudioStream" uid="uid://bsoae2pen5co6" path="res://assets/sfx/characters/footsteps/Footsteps Grass 3.ogg" id="3_ohjss"]
+[ext_resource type="AudioStream" uid="uid://c06as3lxy6txb" path="res://assets/sfx/characters/footsteps/Footsteps Grass 4.ogg" id="4_yt8y6"]
+[ext_resource type="AudioStream" uid="uid://ddwpu0tmr78ed" path="res://assets/sfx/characters/footsteps/Footsteps Grass 5.ogg" id="5_0icia"]
+[ext_resource type="AudioStream" uid="uid://bqjyqxei8wigs" path="res://assets/sfx/characters/footsteps/Footsteps Grass 6.ogg" id="6_8jvkm"]
+[ext_resource type="AudioStream" uid="uid://bphwd0pacf8ja" path="res://assets/sfx/characters/footsteps/Footsteps Grass 7.ogg" id="7_u1oye"]
+[ext_resource type="AudioStream" uid="uid://cdgn83hxffjik" path="res://assets/sfx/characters/footsteps/Footsteps Grass 8.ogg" id="8_oikmy"]
+[ext_resource type="AudioStream" uid="uid://c66j8xqeeorlp" path="res://assets/sfx/characters/footsteps/Footsteps Grass 9.ogg" id="9_bfa4t"]
+[ext_resource type="AudioStream" uid="uid://bhjpmyg5qwxet" path="res://assets/sfx/characters/footsteps/Footsteps Grass 10.ogg" id="10_tiqob"]
+[ext_resource type="Script" uid="uid://tmg1monq0owj" path="res://scripts/character/footsteps_resource.gd" id="11_8qaft"]
+
+[resource]
+script = ExtResource("11_8qaft")
+footsteps_sfx = Array[AudioStream]([ExtResource("1_shue1"), ExtResource("2_pw4dg"), ExtResource("3_ohjss"), ExtResource("4_yt8y6"), ExtResource("5_0icia"), ExtResource("6_8jvkm"), ExtResource("7_u1oye"), ExtResource("8_oikmy"), ExtResource("9_bfa4t"), ExtResource("10_tiqob")])
+metadata/_custom_type_script = "uid://tmg1monq0owj"
