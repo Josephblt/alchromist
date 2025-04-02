@@ -372,4 +372,5 @@ libraries = {
 [node name="Audio" type="Node" parent="."]
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio"]
+bus = &"SFX"
 script = ExtResource("10_l884r")
