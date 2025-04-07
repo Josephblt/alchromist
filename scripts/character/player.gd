@@ -23,8 +23,8 @@ func _adjust_camera_limits() -> void:
 	var min_pos: Vector2i = Vector2i.MAX
 	var max_pos: Vector2i = Vector2i.MIN
 
-	var rect: Rect2i = floor_tiles.get_used_rect()
-	var size = floor_tiles.tile_set.tile_size
+	var rect: Rect2i = terrain_tiles.get_used_rect()
+	var size = terrain_tiles.tile_set.tile_size
 		
 	var pos = rect.position * size
 	var end = rect.end * size

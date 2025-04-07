@@ -1,6 +1,5 @@
 class_name Character extends CharacterBody2D
 
-
 @export var bodies: Array[Texture2D]
 @export var hands: Array[Texture2D]
 
@@ -15,7 +14,7 @@ class_name Character extends CharacterBody2D
 @export var l_hand_attacking: bool = false
 @export var r_hand_attacking: bool = false
 
-@export var floor_tiles: TileMapLayer
+@export var terrain_tiles: TileMapLayer
 
 @onready var body_sprite: Sprite2D = $BodyShape/BodySprite
 @onready var left_hand_sprite: Sprite2D = $LeftHand/LeftHandShape/LeftHandSprite
