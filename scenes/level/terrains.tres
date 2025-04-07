@@ -1,16 +1,16 @@
 [gd_resource type="TileSet" load_steps=11 format=3 uid="uid://igucne6erq5o"]
 
 [ext_resource type="Resource" uid="uid://llp8kcjecsg3" path="res://scenes/character/Footsteps/grass_footsteps.tres" id="1_81s3x"]
-[ext_resource type="Texture2D" uid="uid://cpehhmgbcouuo" path="res://assets/sprites/level/floor/grass.svg" id="1_n4llu"]
-[ext_resource type="Texture2D" uid="uid://crpgxtnbkqece" path="res://assets/sprites/level/floor/stone.svg" id="2_5r5v8"]
-[ext_resource type="Texture2D" uid="uid://bvj84vasr5xv5" path="res://assets/sprites/level/floor/wood.svg" id="3_adug8"]
+[ext_resource type="Texture2D" uid="uid://cpehhmgbcouuo" path="res://assets/sprites/level/terrains/grass.svg" id="2_udljj"]
 [ext_resource type="Resource" uid="uid://j638wh6l4j1l" path="res://scenes/character/Footsteps/concrete_footsteps.tres" id="3_m301m"]
 [ext_resource type="Resource" uid="uid://d2ttsv1q4ia4e" path="res://scenes/character/Footsteps/broken_concrete_footsteps.tres" id="4_orbsa"]
+[ext_resource type="Texture2D" uid="uid://crpgxtnbkqece" path="res://assets/sprites/level/terrains/stone.svg" id="5_wguha"]
 [ext_resource type="Resource" uid="uid://cs2dk57vyjup6" path="res://scenes/character/Footsteps/wood_footsteps.tres" id="6_ytfoc"]
+[ext_resource type="Texture2D" uid="uid://bvj84vasr5xv5" path="res://assets/sprites/level/terrains/wood.svg" id="7_qp63r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwx85"]
 resource_name = "Grass"
-texture = ExtResource("1_n4llu")
+texture = ExtResource("2_udljj")
 texture_region_size = Vector2i(128, 128)
 0:0/next_alternative_id = 4
 0:0/0 = 0
@@ -36,7 +36,7 @@ texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4llu"]
 resource_name = "Stone"
-texture = ExtResource("2_5r5v8")
+texture = ExtResource("5_wguha")
 texture_region_size = Vector2i(128, 128)
 0:0/next_alternative_id = 8
 0:0/0 = 0
@@ -155,7 +155,7 @@ texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5r5v8"]
 resource_name = "Wood"
-texture = ExtResource("3_adug8")
+texture = ExtResource("7_qp63r")
 texture_region_size = Vector2i(128, 128)
 0:0/next_alternative_id = 14
 0:0/0 = 0
