@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://qhj5j3wpjnp" path="res://scripts/character/player.gd" id="2_tum32"]
 
 [node name="Player" instance=ExtResource("1_vt0b6")]
+collision_layer = 1
 script = ExtResource("2_tum32")
 
 [node name="AudioListener" type="AudioListener2D" parent="." index="0"]
