@@ -103,7 +103,7 @@ loop_mode = 1
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../Audio/Footsteps")
+tracks/0/path = NodePath("../../BodyShape/Footsteps")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -255,6 +255,9 @@ _data = {
 }
 
 [node name="Character" type="CharacterBody2D"]
+z_index = 4
+collision_layer = 0
+collision_mask = 12
 motion_mode = 1
 script = ExtResource("1_6nn2t")
 bodies = Array[Texture2D]([ExtResource("2_q52vl"), ExtResource("3_l884r"), ExtResource("4_0rlhq"), ExtResource("5_oe6dy")])
@@ -263,21 +266,22 @@ hands = Array[Texture2D]([ExtResource("6_cuvpk"), ExtResource("7_rvcjf"), ExtRes
 [node name="BodyShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_q52vl")
 
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="BodyShape" node_paths=PackedStringArray("character")]
+max_distance = 500.0
+bus = &"SFX"
+script = ExtResource("10_l884r")
+character = NodePath("../..")
+
 [node name="BodySprite" type="Sprite2D" parent="BodyShape"]
-show_behind_parent = true
-z_index = 3
 texture = ExtResource("2_q52vl")
 
 [node name="LeftHand" type="Area2D" parent="."]
 position = Vector2(-50, -50)
 
 [node name="LeftHandShape" type="CollisionShape2D" parent="LeftHand"]
-z_index = 1
 shape = SubResource("CircleShape2D_l884r")
 
 [node name="LeftHandSprite" type="Sprite2D" parent="LeftHand/LeftHandShape"]
-show_behind_parent = true
-z_index = 4
 texture = ExtResource("6_cuvpk")
 
 [node name="RightHand" type="Area2D" parent="."]
@@ -287,8 +291,6 @@ position = Vector2(50, -50)
 shape = SubResource("CircleShape2D_l884r")
 
 [node name="RightHandSprite" type="Sprite2D" parent="RightHand/RightHandShape"]
-show_behind_parent = true
-z_index = 4
 texture = ExtResource("6_cuvpk")
 flip_h = true
 
@@ -368,9 +370,3 @@ parameters/hands_move/time_scale/scale = 1.0
 libraries = {
 &"": SubResource("AnimationLibrary_oe6dy")
 }
-
-[node name="Audio" type="Node" parent="."]
-
-[node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio"]
-bus = &"SFX"
-script = ExtResource("10_l884r")
