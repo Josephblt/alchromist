@@ -1,13 +1,14 @@
 class_name FootstepsRandomizer extends AudioStreamPlayer2D
 
 
-@onready var character: Character = $"../../"
+@export var character: Character
 
-var floor_tiles: TileMapLayer 
+
+var terrain_tiles: TileMapLayer 
 
 
 func _ready() -> void:
-	floor_tiles = character.floor_tiles
+	terrain_tiles = character.terrain_tiles
 
 
 func play_footstep() -> void:
@@ -16,11 +17,11 @@ func play_footstep() -> void:
 
 
 func _fetch_random_footstep() -> AudioStream:
-	if !floor_tiles:
+	if !terrain_tiles:
 		return null
 	
-	var tile_coords: Vector2i = floor_tiles.local_to_map(character.position)
-	var tile_data: TileData = floor_tiles.get_cell_tile_data(tile_coords)
+	var tile_coords: Vector2i = terrain_tiles.local_to_map(character.position)
+	var tile_data: TileData = terrain_tiles.get_cell_tile_data(tile_coords)
 
 	var footsteps: Array[AudioStream] = []
 	if tile_data:
