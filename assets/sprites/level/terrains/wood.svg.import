@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxv7fbbv35qn6"
-path="res://.godot/imported/stairs_up.svg-31b6c8b26cdd521e4ece43d7b20003b0.ctex"
+uid="uid://bvj84vasr5xv5"
+path="res://.godot/imported/wood.svg-4b9cdf6190d6a696719937ca1c1e0cfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/level/stairs_up.svg"
-dest_files=["res://.godot/imported/stairs_up.svg-31b6c8b26cdd521e4ece43d7b20003b0.ctex"]
+source_file="res://assets/sprites/level/terrains/wood.svg"
+dest_files=["res://.godot/imported/wood.svg-4b9cdf6190d6a696719937ca1c1e0cfc.ctex"]
 
 [params]
 

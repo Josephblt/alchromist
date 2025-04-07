@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqad3fjnaokxm"
-path="res://.godot/imported/stairs_down.svg-49d085ad057ff74f90b2bf8aa39027c2.ctex"
+uid="uid://cpehhmgbcouuo"
+path="res://.godot/imported/grass.svg-df773a6013cdae57c630b84049786740.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/level/stairs_down.svg"
-dest_files=["res://.godot/imported/stairs_down.svg-49d085ad057ff74f90b2bf8aa39027c2.ctex"]
+source_file="res://assets/sprites/level/terrains/grass.svg"
+dest_files=["res://.godot/imported/grass.svg-df773a6013cdae57c630b84049786740.ctex"]
 
 [params]
 

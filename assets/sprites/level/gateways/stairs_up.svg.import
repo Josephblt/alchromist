@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crpgxtnbkqece"
-path="res://.godot/imported/stone.svg-579ace3a96a3454d597b24a8fee0ebef.ctex"
+uid="uid://cxv7fbbv35qn6"
+path="res://.godot/imported/stairs_up.svg-2e323fcb45eb492e56d60e31a3505d0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/level/floor/stone.svg"
-dest_files=["res://.godot/imported/stone.svg-579ace3a96a3454d597b24a8fee0ebef.ctex"]
+source_file="res://assets/sprites/level/gateways/stairs_up.svg"
+dest_files=["res://.godot/imported/stairs_up.svg-2e323fcb45eb492e56d60e31a3505d0b.ctex"]
 
 [params]
 
