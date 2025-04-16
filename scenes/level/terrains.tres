@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" load_steps=11 format=3 uid="uid://igucne6erq5o"]
 
-[ext_resource type="Resource" uid="uid://llp8kcjecsg3" path="res://scenes/character/Footsteps/grass_footsteps.tres" id="1_81s3x"]
+[ext_resource type="Resource" uid="uid://llp8kcjecsg3" path="res://scenes/audio/footsteps/grass_footsteps.tres" id="1_81s3x"]
 [ext_resource type="Texture2D" uid="uid://cpehhmgbcouuo" path="res://assets/sprites/level/terrains/grass.svg" id="2_udljj"]
-[ext_resource type="Resource" uid="uid://j638wh6l4j1l" path="res://scenes/character/Footsteps/concrete_footsteps.tres" id="3_m301m"]
-[ext_resource type="Resource" uid="uid://d2ttsv1q4ia4e" path="res://scenes/character/Footsteps/broken_concrete_footsteps.tres" id="4_orbsa"]
+[ext_resource type="Resource" uid="uid://j638wh6l4j1l" path="res://scenes/audio/footsteps/concrete_footsteps.tres" id="3_m301m"]
+[ext_resource type="Resource" uid="uid://d2ttsv1q4ia4e" path="res://scenes/audio/footsteps/broken_concrete_footsteps.tres" id="4_orbsa"]
 [ext_resource type="Texture2D" uid="uid://crpgxtnbkqece" path="res://assets/sprites/level/terrains/stone.svg" id="5_wguha"]
-[ext_resource type="Resource" uid="uid://cs2dk57vyjup6" path="res://scenes/character/Footsteps/wood_footsteps.tres" id="6_ytfoc"]
+[ext_resource type="Resource" uid="uid://cs2dk57vyjup6" path="res://scenes/audio/footsteps/wood_footsteps.tres" id="6_ytfoc"]
 [ext_resource type="Texture2D" uid="uid://bvj84vasr5xv5" path="res://assets/sprites/level/terrains/wood.svg" id="7_qp63r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwx85"]
