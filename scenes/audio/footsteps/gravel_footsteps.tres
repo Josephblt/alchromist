@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FootstepsResource" load_steps=2 format=3 uid="uid://okd3afq1oqm6"]
+
+[ext_resource type="Script" uid="uid://tmg1monq0owj" path="res://scripts/character/footsteps_resource.gd" id="1_tp175"]
+
+[resource]
+script = ExtResource("1_tp175")
+footsteps_sfx = Array[AudioStream]([])
+metadata/_custom_type_script = "uid://tmg1monq0owj"
