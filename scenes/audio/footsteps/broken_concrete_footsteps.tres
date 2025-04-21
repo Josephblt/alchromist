@@ -1,14 +1,13 @@
-[gd_resource type="Resource" script_class="FootstepsResource" load_steps=8 format=3 uid="uid://d2ttsv1q4ia4e"]
+[gd_resource type="Resource" script_class="FootstepsResource" load_steps=7 format=3 uid="uid://d2ttsv1q4ia4e"]
 
-[ext_resource type="AudioStream" uid="uid://c602b5fogncyn" path="res://assets/sfx/characters/footsteps/Footsteps Broken Concrete 1.ogg" id="1_lqci8"]
-[ext_resource type="AudioStream" uid="uid://dui6wnlqyl7md" path="res://assets/sfx/characters/footsteps/Footsteps Broken Concrete 2.ogg" id="2_3jsj6"]
-[ext_resource type="AudioStream" uid="uid://bd3u5htysna4b" path="res://assets/sfx/characters/footsteps/Footsteps Broken Concrete 3.ogg" id="3_cc61o"]
-[ext_resource type="AudioStream" uid="uid://5bqrhb15ko0v" path="res://assets/sfx/characters/footsteps/Footsteps Broken Concrete 4.ogg" id="4_upysk"]
-[ext_resource type="AudioStream" uid="uid://uu1xivg5j30u" path="res://assets/sfx/characters/footsteps/Footsteps Broken Concrete 5.ogg" id="5_dogcg"]
-[ext_resource type="AudioStream" uid="uid://cfy8dp7nlrnc1" path="res://assets/sfx/characters/footsteps/Footsteps Broken Concrete 6.ogg" id="6_hc2y2"]
+[ext_resource type="AudioStream" uid="uid://ddlicd4alrh83" path="res://assets/sfx/footsteps/broken_concrete/footsteps_broken_concrete_1.ogg" id="1_1s4og"]
+[ext_resource type="AudioStream" uid="uid://dw3ux8ivvmd4h" path="res://assets/sfx/footsteps/broken_concrete/footsteps_broken_concrete_2.ogg" id="2_rs1dd"]
+[ext_resource type="AudioStream" uid="uid://cgb86dnu6vhu4" path="res://assets/sfx/footsteps/broken_concrete/footsteps_broken_concrete_3.ogg" id="3_wvhbn"]
+[ext_resource type="AudioStream" uid="uid://bpnovooxtoaw8" path="res://assets/sfx/footsteps/broken_concrete/footsteps_broken_concrete_4.ogg" id="4_8cbn5"]
+[ext_resource type="AudioStream" uid="uid://brwjhnu7bfqhw" path="res://assets/sfx/footsteps/broken_concrete/footsteps_broken_concrete_5.ogg" id="5_lpdt2"]
 [ext_resource type="Script" uid="uid://tmg1monq0owj" path="res://scripts/character/footsteps_resource.gd" id="7_vx061"]
 
 [resource]
 script = ExtResource("7_vx061")
-footsteps_sfx = Array[AudioStream]([ExtResource("1_lqci8"), ExtResource("2_3jsj6"), ExtResource("3_cc61o"), ExtResource("4_upysk"), ExtResource("5_dogcg"), ExtResource("6_hc2y2")])
+footsteps_sfx = Array[AudioStream]([ExtResource("1_1s4og"), ExtResource("2_rs1dd"), ExtResource("3_wvhbn"), ExtResource("4_8cbn5"), ExtResource("5_lpdt2")])
 metadata/_custom_type_script = "uid://tmg1monq0owj"
