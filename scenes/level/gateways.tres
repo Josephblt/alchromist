@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://jx7tvpw34n3i"]
 
-[ext_resource type="Texture2D" uid="uid://dqad3fjnaokxm" path="res://assets/sprites/level/gateways/stairs_down.svg" id="1_kto30"]
+[ext_resource type="Texture2D" uid="uid://dqad3fjnaokxm" path="res://assets/sprites/level/gateways.svg" id="1_kto30"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oieql"]
 resource_name = "Gateways"
