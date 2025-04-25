@@ -13,7 +13,10 @@ func _ready() -> void:
 
 func play_footstep() -> void:
 	stream = _fetch_random_footstep()
-	play()
+	if stream:
+		play()
+	else:
+		stop()
 
 
 func _fetch_random_footstep() -> AudioStream:
@@ -28,4 +31,7 @@ func _fetch_random_footstep() -> AudioStream:
 		var footsteps_resource: FootstepsResource = tile_data.get_custom_data("Footsteps")
 		footsteps = footsteps_resource.footsteps_sfx
 
-	return footsteps.pick_random()
+	if footsteps.size() > 0:
+		return footsteps.pick_random()
+	else:
+		return null
