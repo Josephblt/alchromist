@@ -24,18 +24,26 @@ func _adjust_camera_limits() -> void:
 	var max_pos: Vector2i = Vector2i.MIN
 
 	var rect: Rect2i = terrain_tiles.get_used_rect()
-	var size = terrain_tiles.tile_set.tile_size
-		
-	var pos = rect.position * size
-	var end = rect.end * size
+	var size: Vector2i = terrain_tiles.tile_set.tile_size
+	
+	var pos: Vector2i = rect.position * size
+	var end: Vector2i = rect.end * size
 
 	min_pos = Vector2i(min(min_pos.x, pos.x), min(min_pos.y, pos.y))
 	max_pos = Vector2i(max(max_pos.x, end.x), max(max_pos.y, end.y))
 
-	camera.limit_left = min_pos.x
-	camera.limit_top = min_pos.y
-	camera.limit_right = max_pos.x
-	camera.limit_bottom = max_pos.y
+	var level_size: Vector2i = rect.size * size
+	print(level_size)
+	var viewport_size: Vector2 = camera.get_viewport_rect().size
+	print(viewport_size)
+
+	if viewport_size.x < level_size.x:
+		camera.limit_left = min_pos.x
+		camera.limit_right = max_pos.x
+	
+	if viewport_size.y < level_size.y:
+		camera.limit_top = min_pos.y
+		camera.limit_bottom = max_pos.y
 
 
 func _handle_aim_h_input() -> void:
