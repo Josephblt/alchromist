@@ -17,6 +17,14 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 buses/default_bus_layout="res://scenes/audio/main_bus_layout.tres"
 
+[importer_defaults]
+
+texture={
+&"detect_3d/compress_to": 0,
+&"roughness/mode": 1,
+&"svg/scale": 2.0
+}
+
 [input]
 
 "Aim Left"={
