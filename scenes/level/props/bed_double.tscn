@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cna4c61hvme61"]
+
+[ext_resource type="Texture2D" uid="uid://bigc76h573r6b" path="res://assets/sprites/level/props/bed_double.svg" id="1_irlk3"]
+
+[node name="BedDouble" type="StaticBody2D"]
+z_index = 4
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_irlk3")
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-102, -118, 102, -118, 102, -103, 98, -103, 98, 103, 102, 103, 102, 118, -102, 118, -102, 103, -98, 103, -98, -103, -102, -103)
