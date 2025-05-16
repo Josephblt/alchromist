@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnc7d4bmpubau"]
+
+[ext_resource type="Texture2D" uid="uid://b0bdmsptd3xkx" path="res://assets/sprites/level/props/bed_single.svg" id="1_2fvg6"]
+
+[node name="BedSingle" type="StaticBody2D"]
+z_index = 4
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_2fvg6")
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-54, -118, 54, -118, 54, -103, 50, -103, 50, 103, 54, 103, 54, 118, -54, 118, -54, 103, -50, 103, -50, -103, -54, -103)
