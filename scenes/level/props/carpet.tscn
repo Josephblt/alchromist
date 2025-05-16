@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://6mbjvs2au68r"]
+
+[ext_resource type="Texture2D" uid="uid://dwqbvn0h7mkxk" path="res://assets/sprites/level/props/carpet.svg" id="1_h6mcu"]
+
+[node name="Carpet" type="Area2D"]
+z_index = 4
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_h6mcu")
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+position = Vector2(28, -24)
+polygon = PackedVector2Array(-78, -37, 22, -37, 22, 85, -78, 85)
