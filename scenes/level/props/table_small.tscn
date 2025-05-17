@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ej7i3ptextyx"]
+
+[ext_resource type="Texture2D" uid="uid://sbdap55pwkjc" path="res://assets/sprites/level/props/table_small.svg" id="1_ei0a5"]
+
+[node name="TableSmall" type="StaticBody2D"]
+z_index = 4
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ei0a5")
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+position = Vector2(28, -24)
+polygon = PackedVector2Array(-88, -16, 32, -16, 32, 64, -88, 64)
