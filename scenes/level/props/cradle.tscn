@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpupfjoptyxwf"]
+
+[ext_resource type="Texture2D" uid="uid://ivuvo4vq5nkc" path="res://assets/sprites/level/props/cradle.svg" id="1_1r820"]
+
+[node name="Crib" type="StaticBody2D"]
+z_index = 4
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_1r820")
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-46, -60, 46, -60, 46, -43, 41, -43, 41, 45, 46, 45, 46, 60, -46, 60, -46, 45, -41, 45, -41, -43, -46, -43)
