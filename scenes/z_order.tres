@@ -14,8 +14,6 @@
 
 [resource]
 script = ExtResource("1_4nwte")
-terrains_tileset = ExtResource("2_g87ej")
-limits_tileset = ExtResource("1_j64qa")
 player_scene = ExtResource("2_c38hy")
 props_bed_double_scene = ExtResource("3_ann0v")
 props_bed_single_scene = ExtResource("4_ybr38")
@@ -24,5 +22,7 @@ props_chair_scene = ExtResource("6_k70vq")
 props_chest_scene = ExtResource("7_t7s5p")
 props_cradle_scene = ExtResource("8_p5hpi")
 props_table_small_scene = ExtResource("9_1u0uj")
+limits_tileset = ExtResource("1_j64qa")
+terrains_tileset = ExtResource("2_g87ej")
 z_order_list = Array[int]([12, 13, 14, 15, 0, 1, 5, 6, 7, 8, 9, 10, 11, 3, 4, 2])
 metadata/_custom_type_script = "uid://cme0f5h4dvj3c"
