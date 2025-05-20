@@ -76,9 +76,13 @@ func _update_z_indexes() -> void:
 
 
 func _update_limits_tileset() -> void:
-    _update_tileset(0, Z_LAYERS.LIMITS_FENCES)
-    _update_tileset(1, Z_LAYERS.LIMITS_TREES)
-    _update_tileset(2, Z_LAYERS.LIMITS_WALLS)
+    _update_tileset(limits_tileset, 0, z_order_list.find(Z_LAYERS.LIMITS_FENCES))
+    _update_tileset(limits_tileset, 1, z_order_list.find(Z_LAYERS.LIMITS_TREES))
+    _update_tileset(limits_tileset, 2, z_order_list.find(Z_LAYERS.LIMITS_WALLS))
+    print("Limits tileset updated.")
+    print("Fences: " + str(z_order_list.find(Z_LAYERS.LIMITS_FENCES)))
+    print("Trees: " + str(z_order_list.find(Z_LAYERS.LIMITS_TREES)))
+    print("Walls: " + str(z_order_list.find(Z_LAYERS.LIMITS_WALLS)))
 
 
 func _update_player() -> void:
@@ -90,55 +94,85 @@ func _update_player() -> void:
     var player_right_hand = player.get_node("RightHand/RightHandShape/RightHandSprite")
     player_right_hand.z_index = z_order_list.find(Z_LAYERS.PLAYER_HANDS)
     _save_scene(player, player_scene.resource_path)
+    print("Player scene updated.")
+    print(player_body.name + ": " + str(player_body.z_index))
+    print(player_left_hand.name + ": " + str(player_left_hand.z_index))
+    print(player_right_hand.name + ": " + str(player_right_hand.z_index))
+
+
+func _update_props_bed_double() -> void:
+    var bed_double = _load_scene(props_bed_double_scene)
+    var bed_double_sprite = bed_double.get_node("Sprite")
+    bed_double_sprite.z_index = z_order_list.find(Z_LAYERS.PROPS_BED_DOUBLE)
+    _save_scene(bed_double, props_bed_double_scene.resource_path)
+    print("Bed double scene updated.")
+    print(bed_double_sprite.name + ": " + str(bed_double_sprite.z_index))
 
 
 func _update_props_bed_single() -> void:
     var bed_single = _load_scene(props_bed_single_scene)
     var bed_single_sprite = bed_single.get_node("Sprite")
     bed_single_sprite.z_index = z_order_list.find(Z_LAYERS.PROPS_BED_SINGLE)
-    _save_scene(bed_single, player_scene.resource_path)
-
-
-func _update_props_bed_double() -> void:
-    var bed_double = _load_scene(props_bed_single_scene)
-    var bed_double_sprite = bed_double.get_node("Sprite")
-    bed_double_sprite.z_index = z_order_list.find(Z_LAYERS.PROPS_BED_DOUBLE)
-    _save_scene(bed_double, player_scene.resource_path)
+    _save_scene(bed_single, props_bed_single_scene.resource_path)
+    print("Bed single scene updated.")
+    print(bed_single_sprite.name + ": " + str(bed_single_sprite.z_index))
 
 
 func _update_props_carpet() -> void:
     var carpet = _load_scene(props_carpet_scene)
     var carpet_sprite = carpet.get_node("Sprite")
     carpet_sprite.z_index = z_order_list.find(Z_LAYERS.PROPS_CARPET)
-    _save_scene(carpet, player_scene.resource_path)
+    _save_scene(carpet, props_carpet_scene.resource_path)
+    print("Carpet scene updated.")
+    print(carpet_sprite.name + ": " + str(carpet_sprite.z_index))
 
 
 func _update_props_chair() -> void:
     var chair = _load_scene(props_chair_scene)
     var chair_sprite = chair.get_node("Sprite")
     chair_sprite.z_index = z_order_list.find(Z_LAYERS.PROPS_CHAIR)
-    _save_scene(chair, player_scene.resource_path)
+    _save_scene(chair, props_chair_scene.resource_path)
+    print("Chair scene updated.")
+    print(chair_sprite.name + ": " + str(chair_sprite.z_index))
 
 
 func _update_props_chest() -> void:
     var chest = _load_scene(props_chest_scene)
     var chest_sprite = chest.get_node("Sprite")
     chest_sprite.z_index = z_order_list.find(Z_LAYERS.PROPS_CHEST)
-    _save_scene(chest, player_scene.resource_path)
+    _save_scene(chest, props_chest_scene.resource_path)
+    print("Chest scene updated.")
+    print(chest_sprite.name + ": " + str(chest_sprite.z_index))
 
 
 func _update_props_cradle() -> void:
     var cradle = _load_scene(props_cradle_scene)
     var cradle_sprite = cradle.get_node("Sprite")
     cradle_sprite.z_index = z_order_list.find(Z_LAYERS.PROPS_CRADLE)
-    _save_scene(cradle, player_scene.resource_path)
+    _save_scene(cradle, props_cradle_scene.resource_path)
+    print("Cradle scene updated.")
+    print(cradle_sprite.name + ": " + str(cradle_sprite.z_index))
 
 
 func _update_props_table_small() -> void:
     var table_small = _load_scene(props_table_small_scene)
     var table_small_sprite = table_small.get_node("Sprite")
     table_small_sprite.z_index = z_order_list.find(Z_LAYERS.PROPS_TABLE_SMALL)
-    _save_scene(table_small, player_scene.resource_path)
+    _save_scene(table_small, props_table_small_scene.resource_path)
+    print("Table small scene updated.")
+    print(table_small_sprite.name + ": " + str(table_small_sprite.z_index))
+
+
+func _update_terrains_tileset() -> void:
+    _update_tileset(terrains_tileset, 0, z_order_list.find(Z_LAYERS.TERRAIN_GRASS))
+    _update_tileset(terrains_tileset, 1, z_order_list.find(Z_LAYERS.TERRAIN_GRAVEL))
+    _update_tileset(terrains_tileset, 2, z_order_list.find(Z_LAYERS.TERRAIN_STONE))
+    _update_tileset(terrains_tileset, 3, z_order_list.find(Z_LAYERS.TERRAIN_WOOD))
+    print("Terrains tileset updated.")
+    print("Grass: " + str(z_order_list.find(Z_LAYERS.TERRAIN_GRASS)))
+    print("Gravel: " + str(z_order_list.find(Z_LAYERS.TERRAIN_GRAVEL)))
+    print("Stone: " + str(z_order_list.find(Z_LAYERS.TERRAIN_STONE)))
+    print("Wood: " + str(z_order_list.find(Z_LAYERS.TERRAIN_WOOD)))
 
 
 func _load_scene(packedScene: PackedScene) -> Node:
@@ -155,15 +189,8 @@ func _save_scene(scene: Node, path: String) -> void:
             push_error("An error occurred while saving the scene: " + path + " to disk.")
 
 
-func _update_terrains_tileset() -> void:
-    _update_tileset(0, Z_LAYERS.TERRAIN_GRASS)
-    _update_tileset(1, Z_LAYERS.TERRAIN_GRAVEL)
-    _update_tileset(2, Z_LAYERS.TERRAIN_STONE)
-    _update_tileset(3, Z_LAYERS.TERRAIN_WOOD)
-
-
-func _update_tileset(source_id: int, z_layer: Z_LAYERS) -> void:
-    var source: TileSetAtlasSource = terrains_tileset.get_source(source_id)
+func _update_tileset(tileset: TileSet, source_id: int, z_layer: Z_LAYERS) -> void:
+    var source: TileSetAtlasSource = tileset.get_source(source_id)
     var tile_count: int = source.get_tiles_count()
 
     for i in range(tile_count):
