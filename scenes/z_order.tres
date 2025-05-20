@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ZOrderResource" load_steps=5 format=3 uid="uid://bkfmp2sfxnw33"]
+
+[ext_resource type="Script" uid="uid://cme0f5h4dvj3c" path="res://scripts/z_order_resource.gd" id="1_4nwte"]
+[ext_resource type="TileSet" uid="uid://fxbay1l25g6m" path="res://scenes/level/limits.tres" id="1_j64qa"]
+[ext_resource type="PackedScene" uid="uid://iaffp42vj8ej" path="res://scenes/character/player.tscn" id="2_c38hy"]
+[ext_resource type="TileSet" uid="uid://igucne6erq5o" path="res://scenes/level/terrains.tres" id="2_g87ej"]
+
+[resource]
+script = ExtResource("1_4nwte")
+z_order_list = Array[int]([0, 1, 3, 2])
+terrains_tileset = ExtResource("2_g87ej")
+limits_tileset = ExtResource("1_j64qa")
+player_scene = ExtResource("2_c38hy")
+metadata/_custom_type_script = "uid://cme0f5h4dvj3c"
