@@ -1,6 +1,5 @@
 @tool
 class_name ZOrderResource
-
 extends Resource
 
 
@@ -10,8 +9,8 @@ enum Z_LAYERS {
     LIMITS_WALLS,
     PLAYER_BODY,
     PLAYER_HANDS,
-    PROPS_BED_SINGLE,
     PROPS_BED_DOUBLE,
+    PROPS_BED_SINGLE,
     PROPS_CARPET,
     PROPS_CHAIR,
     PROPS_CHEST,
@@ -24,17 +23,41 @@ enum Z_LAYERS {
 }
 
 
-@export var z_order_list: Array[Z_LAYERS] = []
-@export var terrains_tileset: TileSet
-@export var limits_tileset: TileSet
+@export_subgroup("Characters")
 @export var player_scene: PackedScene
-@export var props_bed_single_scene: PackedScene
+
+@export_subgroup("Props")
 @export var props_bed_double_scene: PackedScene
+@export var props_bed_single_scene: PackedScene
 @export var props_carpet_scene: PackedScene
 @export var props_chair_scene: PackedScene
 @export var props_chest_scene: PackedScene
 @export var props_cradle_scene: PackedScene
 @export var props_table_small_scene: PackedScene
+
+@export_subgroup("Tilesets")
+@export var limits_tileset: TileSet
+@export var terrains_tileset: TileSet
+
+@export_subgroup("Z-Order")
+@export var z_order_list: Array[Z_LAYERS] = [
+    Z_LAYERS.TERRAIN_GRASS,
+    Z_LAYERS.TERRAIN_GRAVEL,
+    Z_LAYERS.TERRAIN_STONE,
+    Z_LAYERS.TERRAIN_WOOD,
+    Z_LAYERS.LIMITS_FENCES,
+    Z_LAYERS.LIMITS_TREES,
+    Z_LAYERS.PROPS_BED_SINGLE,
+    Z_LAYERS.PROPS_BED_DOUBLE,
+    Z_LAYERS.PROPS_CARPET,
+    Z_LAYERS.PROPS_CHAIR,
+    Z_LAYERS.PROPS_CHEST,
+    Z_LAYERS.PROPS_CRADLE,
+    Z_LAYERS.PROPS_TABLE_SMALL,
+    Z_LAYERS.PLAYER_BODY,
+    Z_LAYERS.PLAYER_HANDS,
+    Z_LAYERS.LIMITS_WALLS,
+]
 
 @export_tool_button("Sort Z-Order", "YSort") var update_button = _update_z_indexes
 
@@ -50,7 +73,6 @@ func _update_z_indexes() -> void:
     _update_props_cradle()
     _update_props_table_small()
     _update_terrains_tileset()
-
 
 
 func _update_limits_tileset() -> void:
