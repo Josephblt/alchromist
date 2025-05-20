@@ -27,40 +27,32 @@ rotation = 3.14159
 terrain_tiles = NodePath("../Terrain")
 
 [node name="Chair" parent="." instance=ExtResource("4_wkxb3")]
-visible = false
 position = Vector2(2283, 5461)
 rotation = -0.837758
 
 [node name="Chair2" parent="." instance=ExtResource("4_wkxb3")]
-visible = false
 position = Vector2(2310, 5705)
 rotation = -0.837758
 
 [node name="Bed" parent="." instance=ExtResource("5_xa3pu")]
-visible = false
 position = Vector2(1760, 5836)
 rotation = 3.15032
 
 [node name="Bed2" parent="." instance=ExtResource("5_xa3pu")]
-visible = false
 position = Vector2(2059, 5840)
 rotation = 3.12294
 
 [node name="Bed3" parent="." instance=ExtResource("6_sktvb")]
-visible = false
 position = Vector2(2100, 4607)
 rotation = 0.00872665
 
 [node name="TableSmall" parent="." instance=ExtResource("8_ilotx")]
-visible = false
 position = Vector2(2291, 5610)
 
 [node name="Chest" parent="." instance=ExtResource("9_62288")]
-visible = false
 position = Vector2(1893, 4954)
 rotation = 3.1765
 
 [node name="Chest2" parent="." instance=ExtResource("9_62288")]
-visible = false
 position = Vector2(2304, 4952)
 rotation = 3.11603
