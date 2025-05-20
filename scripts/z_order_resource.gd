@@ -1,0 +1,84 @@
+@tool
+class_name ZOrderResource
+
+extends Resource
+
+
+enum Z_LAYERS {
+    LIMITS_FENCES,
+    LIMITS_TREES,
+    LIMITS_WALLS,
+    PLAYER_BODY,
+    PLAYER_HANDS,
+    TERRAIN_GRASS,
+    TERRAIN_GRAVEL,
+    TERRAIN_STONE,
+    TERRAIN_WOOD,    
+}
+
+
+@export var z_order_list: Array[Z_LAYERS] = []
+@export var terrains_tileset: TileSet
+@export var limits_tileset: TileSet
+@export var player_scene: PackedScene
+
+
+@export_tool_button("Sort Z-Order", "YSort") var update_button = _update_z_indexes
+
+
+func _update_z_indexes() -> void:
+    _update_limits_tileset()
+    _update_player()
+    _update_terrains_tileset()
+
+
+func _update_limits_tileset() -> void:
+    _update_tileset(0, Z_LAYERS.LIMITS_FENCES)
+    _update_tileset(1, Z_LAYERS.LIMITS_TREES)
+    _update_tileset(2, Z_LAYERS.LIMITS_WALLS)
+
+
+func _update_player() -> void:
+    var player = _load_scene(player_scene)
+    var player_body = player.get_node("BodyShape/BodySprite")
+    player_body.z_index = z_order_list.find(Z_LAYERS.PLAYER_BODY)
+    var player_left_hand = player.get_node("LeftHand/LeftHandShape/LeftHandSprite")
+    player_left_hand.z_index = z_order_list.find(Z_LAYERS.PLAYER_HANDS)
+    var player_right_hand = player.get_node("RightHand/RightHandShape/RightHandSprite")
+    player_right_hand.z_index = z_order_list.find(Z_LAYERS.PLAYER_HANDS)
+    _save_scene(player, player_scene.resource_path)
+
+
+func _load_scene(packedScene: PackedScene) -> Node:
+    var scene: Node = packedScene.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+    return scene
+
+
+func _save_scene(scene: Node, path: String) -> void:
+    var packedScene = PackedScene.new()
+    var pack_result: int = packedScene.pack(scene)
+    if pack_result == OK:
+        var save_result = ResourceSaver.save(packedScene, path)
+        if save_result != OK:
+            push_error("An error occurred while saving the scene: " + path + " to disk.")
+
+
+func _update_terrains_tileset() -> void:
+    _update_tileset(0, Z_LAYERS.TERRAIN_GRASS)
+    _update_tileset(1, Z_LAYERS.TERRAIN_GRAVEL)
+    _update_tileset(2, Z_LAYERS.TERRAIN_STONE)
+    _update_tileset(3, Z_LAYERS.TERRAIN_WOOD)
+
+
+func _update_tileset(source_id: int, z_layer: Z_LAYERS) -> void:
+    var source: TileSetAtlasSource = terrains_tileset.get_source(source_id)
+    var tile_count: int = source.get_tiles_count()
+
+    for i in range(tile_count):
+        var tile_id: Vector2 = source.get_tile_id(i)
+        var z_index: int = z_order_list.find(z_layer)
+        var alternative_tile_count = source.get_alternative_tiles_count(tile_id)
+        for j in range(alternative_tile_count):
+            var alt_tile_id: int = source.get_alternative_tile_id(tile_id, j)
+            var alt_tile_data: TileData = source.get_tile_data(tile_id, alt_tile_id)
+            alt_tile_data.z_index = z_index
