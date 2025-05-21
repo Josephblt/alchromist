@@ -76,9 +76,9 @@ func _update_z_indexes() -> void:
 
 
 func _update_limits_tileset() -> void:
-    _update_tileset(limits_tileset, 0, z_order_list.find(Z_LAYERS.LIMITS_FENCES))
-    _update_tileset(limits_tileset, 1, z_order_list.find(Z_LAYERS.LIMITS_TREES))
-    _update_tileset(limits_tileset, 2, z_order_list.find(Z_LAYERS.LIMITS_WALLS))
+    _update_tileset(limits_tileset, 0, Z_LAYERS.LIMITS_FENCES)
+    _update_tileset(limits_tileset, 1, Z_LAYERS.LIMITS_TREES)
+    _update_tileset(limits_tileset, 2, Z_LAYERS.LIMITS_WALLS)
     print("Limits tileset updated.")
     print("Fences: " + str(z_order_list.find(Z_LAYERS.LIMITS_FENCES)))
     print("Trees: " + str(z_order_list.find(Z_LAYERS.LIMITS_TREES)))
@@ -164,10 +164,10 @@ func _update_props_table_small() -> void:
 
 
 func _update_terrains_tileset() -> void:
-    _update_tileset(terrains_tileset, 0, z_order_list.find(Z_LAYERS.TERRAIN_GRASS))
-    _update_tileset(terrains_tileset, 1, z_order_list.find(Z_LAYERS.TERRAIN_GRAVEL))
-    _update_tileset(terrains_tileset, 2, z_order_list.find(Z_LAYERS.TERRAIN_STONE))
-    _update_tileset(terrains_tileset, 3, z_order_list.find(Z_LAYERS.TERRAIN_WOOD))
+    _update_tileset(terrains_tileset, 0, Z_LAYERS.TERRAIN_GRASS)
+    _update_tileset(terrains_tileset, 1, Z_LAYERS.TERRAIN_GRAVEL)
+    _update_tileset(terrains_tileset, 2, Z_LAYERS.TERRAIN_STONE)
+    _update_tileset(terrains_tileset, 3, Z_LAYERS.TERRAIN_WOOD)
     print("Terrains tileset updated.")
     print("Grass: " + str(z_order_list.find(Z_LAYERS.TERRAIN_GRASS)))
     print("Gravel: " + str(z_order_list.find(Z_LAYERS.TERRAIN_GRAVEL)))
@@ -196,7 +196,7 @@ func _update_tileset(tileset: TileSet, source_id: int, z_layer: Z_LAYERS) -> voi
     for i in range(tile_count):
         var tile_id: Vector2 = source.get_tile_id(i)
         var z_index: int = z_order_list.find(z_layer)
-        var alternative_tile_count = source.get_alternative_tiles_count(tile_id)
+        var alternative_tile_count: int = source.get_alternative_tiles_count(tile_id)
         for j in range(alternative_tile_count):
             var alt_tile_id: int = source.get_alternative_tile_id(tile_id, j)
             var alt_tile_data: TileData = source.get_tile_data(tile_id, alt_tile_id)
