@@ -255,7 +255,6 @@ _data = {
 }
 
 [node name="Character" type="CharacterBody2D"]
-z_index = 4
 collision_layer = 0
 collision_mask = 12
 motion_mode = 1
@@ -276,7 +275,9 @@ character = NodePath("../..")
 texture = ExtResource("2_q52vl")
 
 [node name="LeftHand" type="Area2D" parent="."]
-position = Vector2(-50, -50)
+position = Vector2(-50.6754, -48.9295)
+rotation = -0.0090617
+scale = Vector2(0.999994, 0.999994)
 
 [node name="LeftHandShape" type="CollisionShape2D" parent="LeftHand"]
 shape = SubResource("CircleShape2D_l884r")
@@ -285,7 +286,9 @@ shape = SubResource("CircleShape2D_l884r")
 texture = ExtResource("6_cuvpk")
 
 [node name="RightHand" type="Area2D" parent="."]
-position = Vector2(50, -50)
+position = Vector2(50.6754, -48.9295)
+rotation = 0.00905959
+scale = Vector2(0.999992, 0.999992)
 
 [node name="RightHandShape" type="CollisionShape2D" parent="RightHand"]
 shape = SubResource("CircleShape2D_l884r")
@@ -341,10 +344,10 @@ position = Vector2(-30, -40)
 remote_path = NodePath("../../../../../RightHand")
 
 [node name="LeftHandIK" type="Node2D" parent="."]
-position = Vector2(-50, -50)
+position = Vector2(-50.6696, -49.3304)
 
 [node name="RightHandIK" type="Node2D" parent="."]
-position = Vector2(50, -50)
+position = Vector2(50.6696, -49.3304)
 
 [node name="Animations" type="Node" parent="."]
 
