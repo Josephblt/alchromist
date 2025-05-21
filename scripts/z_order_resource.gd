@@ -23,6 +23,8 @@ enum Z_LAYERS {
 }
 
 
+@export_tool_button("Sort Z-Order", "YSort") var update_button = _update_z_indexes
+
 @export_subgroup("Characters")
 @export var player_scene: PackedScene
 
@@ -58,8 +60,6 @@ enum Z_LAYERS {
     Z_LAYERS.PLAYER_HANDS,
     Z_LAYERS.LIMITS_WALLS,
 ]
-
-@export_tool_button("Sort Z-Order", "YSort") var update_button = _update_z_indexes
 
 
 func _update_z_indexes() -> void:
