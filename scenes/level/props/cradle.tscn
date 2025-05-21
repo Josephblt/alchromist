@@ -2,8 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ivuvo4vq5nkc" path="res://assets/sprites/level/props/cradle.svg" id="1_1r820"]
 
-[node name="Crib" type="StaticBody2D"]
-z_index = 4
+[node name="Cradle" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 3
 
