@@ -24,5 +24,5 @@ props_cradle_scene = ExtResource("8_p5hpi")
 props_table_small_scene = ExtResource("9_1u0uj")
 limits_tileset = ExtResource("1_j64qa")
 terrains_tileset = ExtResource("2_g87ej")
-z_order_list = Array[int]([12, 13, 14, 15, 7, 0, 1, 5, 6, 8, 9, 10, 11, 3, 4, 2])
+z_order_list = Array[int]([12, 13, 14, 15, 7, 0, 1, 5, 6, 9, 8, 10, 11, 3, 4, 2])
 metadata/_custom_type_script = "uid://cme0f5h4dvj3c"
