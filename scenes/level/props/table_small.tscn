@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://sbdap55pwkjc" path="res://assets/sprites/level/props/table_small.svg" id="1_ei0a5"]
 
 [node name="TableSmall" type="StaticBody2D"]
-z_index = 4
 collision_layer = 4
 collision_mask = 3
 
