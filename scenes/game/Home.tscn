@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://b1w858u0kxlgj"]
+[gd_scene load_steps=10 format=4 uid="uid://b1w858u0kxlgj"]
 
 [ext_resource type="TileSet" uid="uid://igucne6erq5o" path="res://scenes/level/terrains.tres" id="1_3wx2l"]
 [ext_resource type="TileSet" uid="uid://fxbay1l25g6m" path="res://scenes/level/limits.tres" id="2_8uvjh"]
 [ext_resource type="PackedScene" uid="uid://iaffp42vj8ej" path="res://scenes/character/player.tscn" id="3_8uvjh"]
+[ext_resource type="PackedScene" uid="uid://6mbjvs2au68r" path="res://scenes/level/props/carpet.tscn" id="4_62288"]
 [ext_resource type="PackedScene" uid="uid://cniwx8i7qn0fk" path="res://scenes/level/props/chair.tscn" id="4_wkxb3"]
 [ext_resource type="PackedScene" uid="uid://bnc7d4bmpubau" path="res://scenes/level/props/bed_single.tscn" id="5_xa3pu"]
 [ext_resource type="PackedScene" uid="uid://cna4c61hvme61" path="res://scenes/level/props/bed_double.tscn" id="6_sktvb"]
@@ -56,3 +57,7 @@ rotation = 3.1765
 [node name="Chest2" parent="." instance=ExtResource("9_62288")]
 position = Vector2(2304, 4952)
 rotation = 3.11603
+
+[node name="Carpet" parent="Chest2" instance=ExtResource("4_62288")]
+position = Vector2(325.113, -860.971)
+rotation = -3.11603
