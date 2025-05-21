@@ -19,3 +19,12 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="BodySprite" parent="BodyShape" index="1"]
+z_index = 13
+
+[node name="LeftHandSprite" parent="LeftHand/LeftHandShape" index="0"]
+z_index = 14
+
+[node name="RightHandSprite" parent="RightHand/RightHandShape" index="0"]
+z_index = 14
