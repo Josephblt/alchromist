@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://b0bdmsptd3xkx" path="res://assets/sprites/level/props/bed_single.svg" id="1_2fvg6"]
 
 [node name="BedSingle" type="StaticBody2D"]
-z_index = 4
 collision_layer = 4
 collision_mask = 3
 
