@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://debelwb1tc1vi" path="res://assets/sprites/level/props/chair.svg" id="1_65nfg"]
 
 [node name="Chair" type="StaticBody2D"]
-z_index = 4
 collision_layer = 4
 collision_mask = 3
 
