@@ -28,11 +28,11 @@ rotation = 3.14159
 terrain_tiles = NodePath("../Terrain")
 
 [node name="Chair" parent="." instance=ExtResource("4_wkxb3")]
-position = Vector2(2283, 5461)
+position = Vector2(2291, 5369)
 rotation = -0.837758
 
 [node name="Chair2" parent="." instance=ExtResource("4_wkxb3")]
-position = Vector2(2310, 5705)
+position = Vector2(2262, 5702)
 rotation = -0.837758
 
 [node name="Bed" parent="." instance=ExtResource("5_xa3pu")]
@@ -40,7 +40,7 @@ position = Vector2(1760, 5836)
 rotation = 3.15032
 
 [node name="Bed2" parent="." instance=ExtResource("5_xa3pu")]
-position = Vector2(2059, 5840)
+position = Vector2(2068, 5837)
 rotation = 3.12294
 
 [node name="Bed3" parent="." instance=ExtResource("6_sktvb")]
@@ -59,4 +59,10 @@ position = Vector2(2304, 4952)
 rotation = 3.11603
 
 [node name="Carpet" parent="." instance=ExtResource("4_62288")]
-position = Vector2(2001, 5821)
+position = Vector2(2004, 5814)
+
+[node name="MasterBedroom" type="Node" parent="."]
+
+[node name="ChildrenBedroom" type="Node" parent="."]
+
+[node name="BabyBedroom" type="Node" parent="."]
