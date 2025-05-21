@@ -58,6 +58,5 @@ rotation = 3.1765
 position = Vector2(2304, 4952)
 rotation = 3.11603
 
-[node name="Carpet" parent="Chest2" instance=ExtResource("4_62288")]
-position = Vector2(325.113, -860.971)
-rotation = -3.11603
+[node name="Carpet" parent="." instance=ExtResource("4_62288")]
+position = Vector2(2001, 5821)
