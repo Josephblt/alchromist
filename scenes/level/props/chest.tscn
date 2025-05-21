@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://b78c86phrs3o0" path="res://assets/sprites/level/props/chest.svg" id="1_rfr54"]
 
 [node name="Chest" type="StaticBody2D"]
-z_index = 4
 collision_layer = 4
 collision_mask = 3
 
