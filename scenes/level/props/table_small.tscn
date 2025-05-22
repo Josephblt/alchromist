@@ -7,7 +7,7 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="Sprite" type="Sprite2D" parent="."]
-z_index = 12
+z_index = 11
 texture = ExtResource("1_ei0a5")
 
 [node name="Shape" type="CollisionPolygon2D" parent="."]
