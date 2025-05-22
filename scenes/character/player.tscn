@@ -21,10 +21,10 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="BodySprite" parent="BodyShape" index="1"]
-z_index = 13
+z_index = 12
 
 [node name="LeftHandSprite" parent="LeftHand/LeftHandShape" index="0"]
-z_index = 14
+z_index = 15
 
 [node name="RightHandSprite" parent="RightHand/RightHandShape" index="0"]
-z_index = 14
+z_index = 15
