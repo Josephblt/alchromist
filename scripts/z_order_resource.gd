@@ -9,6 +9,7 @@ enum Z_LAYERS {
     LIMITS_WALLS,
     PLAYER_BODY,
     PLAYER_HANDS,
+    PROPS_BARREL_TOP,
     PROPS_BED_DOUBLE,
     PROPS_BED_SINGLE,
     PROPS_CARPET,
@@ -29,6 +30,7 @@ enum Z_LAYERS {
 @export var player_scene: PackedScene
 
 @export_subgroup("Props")
+@export var props_barrel_top_scene: PackedScene
 @export var props_bed_double_scene: PackedScene
 @export var props_bed_single_scene: PackedScene
 @export var props_carpet_scene: PackedScene
@@ -47,16 +49,17 @@ enum Z_LAYERS {
     Z_LAYERS.TERRAIN_GRAVEL,
     Z_LAYERS.TERRAIN_STONE,
     Z_LAYERS.TERRAIN_WOOD,
-    Z_LAYERS.LIMITS_FENCES,
-    Z_LAYERS.LIMITS_TREES,
+    Z_LAYERS.PROPS_CARPET,
     Z_LAYERS.PROPS_BED_SINGLE,
     Z_LAYERS.PROPS_BED_DOUBLE,
-    Z_LAYERS.PROPS_CARPET,
-    Z_LAYERS.PROPS_CHAIR,
-    Z_LAYERS.PROPS_CHEST,
     Z_LAYERS.PROPS_CRADLE,
+    Z_LAYERS.PROPS_BARREL_TOP,
+    Z_LAYERS.PROPS_CHEST,
+    Z_LAYERS.PROPS_CHAIR,
     Z_LAYERS.PROPS_TABLE_SMALL,
     Z_LAYERS.PLAYER_BODY,
+    Z_LAYERS.LIMITS_FENCES,
+    Z_LAYERS.LIMITS_TREES,
     Z_LAYERS.PLAYER_HANDS,
     Z_LAYERS.LIMITS_WALLS,
 ]
@@ -65,6 +68,7 @@ enum Z_LAYERS {
 func _update_z_indexes() -> void:
     _update_limits_tileset()
     _update_player()
+    _update_props_barrel_top()
     _update_props_bed_double()
     _update_props_bed_single()
     _update_props_carpet()
@@ -98,6 +102,15 @@ func _update_player() -> void:
     print(player_body.name + ": " + str(player_body.z_index))
     print(player_left_hand.name + ": " + str(player_left_hand.z_index))
     print(player_right_hand.name + ": " + str(player_right_hand.z_index))
+
+
+func _update_props_barrel_top() -> void:
+    var barrel_top = _load_scene(props_barrel_top_scene)
+    var barrel_top_sprite = barrel_top.get_node("Sprite")
+    barrel_top_sprite.z_index = z_order_list.find(Z_LAYERS.PROPS_BARREL_TOP)
+    _save_scene(barrel_top, props_barrel_top_scene.resource_path)
+    print("Barrel top scene updated.")
+    print(barrel_top_sprite.name + ": " + str(barrel_top_sprite.z_index))
 
 
 func _update_props_bed_double() -> void:
