@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="ZOrderResource" load_steps=13 format=3 uid="uid://bkfmp2sfxnw33"]
+[gd_resource type="Resource" script_class="ZOrderResource" load_steps=12 format=3 uid="uid://bkfmp2sfxnw33"]
 
 [ext_resource type="Script" uid="uid://cme0f5h4dvj3c" path="res://scripts/z_order_resource.gd" id="1_4nwte"]
 [ext_resource type="TileSet" uid="uid://fxbay1l25g6m" path="res://scenes/level/limits.tres" id="1_j64qa"]
 [ext_resource type="PackedScene" uid="uid://iaffp42vj8ej" path="res://scenes/character/player.tscn" id="2_c38hy"]
 [ext_resource type="TileSet" uid="uid://igucne6erq5o" path="res://scenes/level/terrains.tres" id="2_g87ej"]
 [ext_resource type="PackedScene" uid="uid://cna4c61hvme61" path="res://scenes/level/props/bed_double.tscn" id="3_ann0v"]
-[ext_resource type="PackedScene" uid="uid://rksducr75q3" path="res://scenes/level/props/barrel_top.tscn" id="3_ybr38"]
 [ext_resource type="PackedScene" uid="uid://bnc7d4bmpubau" path="res://scenes/level/props/bed_single.tscn" id="4_ybr38"]
 [ext_resource type="PackedScene" uid="uid://6mbjvs2au68r" path="res://scenes/level/props/carpet.tscn" id="5_035oh"]
 [ext_resource type="PackedScene" uid="uid://cniwx8i7qn0fk" path="res://scenes/level/props/chair.tscn" id="6_k70vq"]
@@ -16,7 +15,6 @@
 [resource]
 script = ExtResource("1_4nwte")
 player_scene = ExtResource("2_c38hy")
-props_barrel_top_scene = ExtResource("3_ybr38")
 props_bed_double_scene = ExtResource("3_ann0v")
 props_bed_single_scene = ExtResource("4_ybr38")
 props_carpet_scene = ExtResource("5_035oh")
@@ -26,5 +24,5 @@ props_cradle_scene = ExtResource("8_p5hpi")
 props_table_small_scene = ExtResource("9_1u0uj")
 limits_tileset = ExtResource("1_j64qa")
 terrains_tileset = ExtResource("2_g87ej")
-z_order_list = Array[int]([13, 14, 15, 16, 8, 7, 6, 11, 5, 10, 9, 12, 3, 0, 1, 4, 2])
+z_order_list = Array[int]([13, 14, 15, 0, 1, 5, 7, 6, 9, 12, 8, 10, 11, 3, 4, 2, 5])
 metadata/_custom_type_script = "uid://cme0f5h4dvj3c"
