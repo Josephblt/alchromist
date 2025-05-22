@@ -52,6 +52,18 @@ position = Vector2(2243, 4520)
 [node name="Chair" parent="MasterBedroom" instance=ExtResource("4_wkxb3")]
 position = Vector2(2092, 4959)
 
+[node name="Chair2" parent="MasterBedroom" instance=ExtResource("4_wkxb3")]
+position = Vector2(1884, 4526)
+rotation = 2.49931
+
+[node name="Chair4" parent="MasterBedroom" instance=ExtResource("4_wkxb3")]
+position = Vector2(1884, 4526)
+rotation = 2.49931
+
+[node name="Chair3" parent="MasterBedroom" instance=ExtResource("4_wkxb3")]
+position = Vector2(2318, 4522)
+rotation = -2.86583
+
 [node name="Chest3" parent="MasterBedroom" instance=ExtResource("9_62288")]
 position = Vector2(2101, 4769)
 rotation = -0.020944
