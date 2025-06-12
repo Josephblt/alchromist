@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cutv0n53vmebb"]
+
+[ext_resource type="Texture2D" uid="uid://da0ws6ntrr8h1" path="res://assets/sprites/level/props/privy.svg" id="1_38ry1"]
+
+[node name="Privy" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 11
+texture = ExtResource("1_38ry1")
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-70, -40, 70, -40, 70, 40, -70, 40)
